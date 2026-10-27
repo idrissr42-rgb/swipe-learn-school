@@ -283,7 +283,7 @@ form_js = "const FORMATIONS=" + json.dumps([{'ec': 'cook', **x} for x in F] + [{
 rep_re(r'const FORMATIONS=\[.*?\n\];', form_js.replace('\\', '\\\\'))
 rep_re(r'const FILTRES=\[.*?\n\];', '''const FILTRES=[
   {id:'tous',lab:'Toutes'},
-  {id:'diplo',lab:'Préparation à un diplôme',test:f=>['CAP','BP','CS','Titre pro'].includes(f.niv)},
+  {id:'diplo',lab:'Préparation à un diplôme',test:f=>['CAP','BP','CS','Titre pro','Bac pro','BTS'].includes(f.niv)},
   {id:'module',lab:'Modules de diplôme',test:f=>f.niv==='Module'},
   {id:'court',lab:'Formations courtes',test:f=>f.niv==='Courte'}
 ];''')
