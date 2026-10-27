@@ -95,7 +95,7 @@ nav ul.open a:active{background:var(--moutarde-p)}
 .scene .halo{position:absolute;width:330px;height:330px;border-radius:50%;background:var(--cp,var(--moutarde-p));filter:blur(34px);transition:background .7s;opacity:.9}
 .slide{position:absolute;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;transform:scale(.65) translateY(16px);transition:opacity .55s ease,transform .55s ease;pointer-events:none;text-align:center}
 .slide.on{opacity:1;transform:none}
-.slide svg{width:225px;height:225px;color:var(--c););animation:flotteI 5.5s ease-in-out infinite}
+.slide svg{width:225px;height:225px;color:var(--c);animation:flotteI 5.5s ease-in-out infinite}
 @keyframes flotteI{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .slide b{font-family:'Baloo 2';font-size:1.55rem;color:var(--encre);line-height:1.1}
 .slide small{font-size:.8rem;font-weight:800;color:var(--taupe);letter-spacing:.04em}
@@ -414,7 +414,6 @@ nav ul.open a:hover{color:var(--moutarde-f)}
 nav.scrolled{box-shadow:0 1px 0 rgba(42,33,22,.08)} /* taste-skill-ignore : barre fixe ou écran réel de la plateforme */
 /* ornements retirés : halos, arcs, ruban d'icônes, tirets sous les titres */
 .hero::before,.hero::after,.grand-cta .arc,.quiz::before,.quiz::after,.scene .halo,.ruban,.sec-titre .tiret{display:none!important}
-.slide:not(.on){visibility:hidden}
 @media(prefers-reduced-motion:reduce){.slide:not(.on){display:none}}
 /* marque : à plat */
 .f-brand .lg{background:var(--moutarde)}
@@ -1118,7 +1117,7 @@ function allerA(i){
   boutons.forEach((b,k)=>b.classList.toggle('on',k===i));
   halo.style.background=teintes[i];
 }
-function autoC(){cTimer=setInterval(()=>allerA((cIdx+1)%slides.length),2600)}
+function autoC(){cTimer=setInterval(()=>allerA((cIdx+1)%slides.length),1700)}
 boutons.forEach(b=>b.addEventListener('click',()=>{clearInterval(cTimer);allerA(+b.dataset.i);autoC()}));
 const scene=document.getElementById('scene');
 scene.addEventListener('mouseenter',()=>clearInterval(cTimer));

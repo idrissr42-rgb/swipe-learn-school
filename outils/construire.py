@@ -308,6 +308,7 @@ rep('</head>', MA.tete() + '\n' + MA.STYLE + '\n</head>')
 rep('<li><a href="#faq">Accessibilité &amp; handicap</a></li>',
     '<li><a href="#faq">Accessibilité &amp; handicap</a></li>\n        <li><a href="#" id="sl-installer-lien">Installer l’application</a></li>')
 rep('</body>', MA.SCRIPT + '\n</body>')
+rep('setInterval(()=>allerA((cIdx+1)%slides.length),2600)', 'setInterval(()=>allerA((cIdx+1)%slides.length),1700)')
 rep('const COMP_MAX=12;', "const COMP_MAX=window.matchMedia('(max-width:700px)').matches?6:12;")
 # typographie : pas de « ? » seul en début de ligne dans les questions
 h = re.sub(r'(<summary>[^<]*?) \?</summary>', lambda m: m.group(1) + '&nbsp;?</summary>', h)

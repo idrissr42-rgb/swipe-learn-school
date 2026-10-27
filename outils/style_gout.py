@@ -52,7 +52,6 @@ nav ul.open a:hover{color:var(--moutarde-f)}
 nav.scrolled{box-shadow:0 1px 0 rgba(42,33,22,.08)} /* taste-skill-ignore : barre fixe ou écran réel de la plateforme */
 /* ornements retirés : halos, arcs, ruban d'icônes, tirets sous les titres */
 .hero::before,.hero::after,.grand-cta .arc,.quiz::before,.quiz::after,.scene .halo,.ruban,.sec-titre .tiret{display:none!important}
-.slide:not(.on){visibility:hidden}
 @media(prefers-reduced-motion:reduce){.slide:not(.on){display:none}}
 /* marque : à plat */
 .f-brand .lg{background:var(--moutarde)}
@@ -254,7 +253,7 @@ def nettoyer(css):
     """Retire de la feuille d'origine les ombres, flous, dégradés et filets d'un pixel que ce passage remplace."""
     css = re.sub(r'(-webkit-)?backdrop-filter:[^;}]*;?', '', css)
     css = re.sub(r'box-shadow:[^;}]*;?', '', css)
-    css = re.sub(r'filter:\s*drop-shadow\([^)]*\)\s*;?', '', css)
+    css = re.sub(r'filter:\s*drop-shadow\((?:[^()]|\([^()]*\))*\)\s*;?', '', css)
     css = re.sub(r'background(-image)?:\s*(linear|radial)-gradient\((?:[^()]|\([^()]*\))*\)[^;}]*;?', '', css)
     css = re.sub(r'border(-top|-bottom|-left|-right)?:\s*1px solid[^;}]*;?', '', css)
     return css
