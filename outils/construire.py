@@ -281,6 +281,18 @@ rep('<p style="font-size:.74rem;color:#C9BE9E;margin-top:18px">Ce test est indic
 # plus de renvoi par script vers des adresses de maquette : les liens sont de vrais liens
 rep_re(r'<script>\s*\(function\(\)\{\s*var ADRESSES=.*?\}\)\(\);\s*</script>', '')
 
+# ------------------------------------------------------------------ téléphone et application installable (outils/mobile_appli.py)
+import sys
+sys.path.insert(0, ICI)
+import mobile_appli as MA
+rep('</head>', MA.tete() + '\n' + MA.STYLE + '\n</head>')
+rep('<li><a href="#faq">Accessibilité &amp; handicap</a></li>',
+    '<li><a href="#faq">Accessibilité &amp; handicap</a></li>\n        <li><a href="#" id="sl-installer-lien">Installer l’application</a></li>')
+rep('</body>', MA.SCRIPT + '\n</body>')
+rep('const COMP_MAX=12;', "const COMP_MAX=window.matchMedia('(max-width:700px)').matches?6:12;")
+# typographie : pas de « ? » seul en début de ligne dans les questions
+h = re.sub(r'(<summary>[^<]*?) \?</summary>', lambda m: m.group(1) + '&nbsp;?</summary>', h)
+
 # ------------------------------------------------------------------ contrôles
 for interdit in ['Swipe and', 'SWIPE AND', 'swipeandlearn.com', '04 00 00 00 00', 'maquette', 'DocuSign', 'plateforme.html', 'Éligible CPF', '100 %', 'témoign', 'sans avance de frais', 'Lyon<br>']:
     assert interdit not in h, 'reste : ' + interdit
@@ -289,5 +301,7 @@ open(os.path.join(RAC, 'public/index.html'), 'w', encoding='utf-8').write(h)
 open(os.path.join(RAC, 'public/robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
 open(os.path.join(RAC, 'public/sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>{SITE}/</loc><priority>1.0</priority></url>\n</urlset>\n')
 open(os.path.join(RAC, 'public/404.html'), 'w', encoding='utf-8').write(f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page introuvable · Swipe Learn School</title><meta name="robots" content="noindex"></head><body style="font-family:Nunito,Arial,sans-serif;padding:40px;color:#2E2415;background:#FAF6EE"><h1>Cette page n’existe pas</h1><p><a href="/">Retour à l’accueil de Swipe Learn School</a> · <a href="{COOK}/">Cook, l’école de cuisine</a></p></body></html>')
-open(os.path.join(RAC, 'netlify.toml'), 'w').write('[build]\n  publish = "public"\n\n[[headers]]\n  for = "/*"\n  [headers.values]\n    X-Content-Type-Options = "nosniff"\n    Referrer-Policy = "strict-origin-when-cross-origin"\n')
+MA.fichiers(os.path.join(RAC, 'public'), DESC, [('Nos écoles', '/#ecoles'), ('Test d’orientation', '/#quiz'), ('Comparer les formations', '/#comparateur')])
+open(os.path.join(RAC, 'netlify.toml'), 'w').write('[build]\n  publish = "public"\n\n[[headers]]\n  for = "/*"\n  [headers.values]\n    X-Content-Type-Options = "nosniff"\n    Referrer-Policy = "strict-origin-when-cross-origin"\n'
+                                                   '\n[[headers]]\n  for = "/sw.js"\n  [headers.values]\n    Cache-Control = "no-cache"\n')
 print('ok', len(h))
