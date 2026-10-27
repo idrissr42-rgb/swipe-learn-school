@@ -6,7 +6,7 @@ import json, os
 from PIL import Image
 
 NOM, COURT = 'Swipe Learn School', 'Swipe Learn'
-FOND, THEME, OR = '#FAF6EE', '#FAF6EE', (200, 155, 46)
+FOND, THEME, OR = '#F2F1EE', '#2B2213', (200, 155, 46)
 VERSION_CACHE = 'sls-v1'
 
 
@@ -44,6 +44,7 @@ STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
   .brand{gap:10px}
   .brand .lg{width:40px;height:40px;border-radius:12px}
   #sl-installer{top:72px}
+  nav ul.open{top:70px}
   /* accueil */
   .hero{padding:24px 0 30px}
   .hero .wrap{gap:8px}

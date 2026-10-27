@@ -39,15 +39,25 @@ body{background:var(--creme);color:var(--encre);font-size:16px;line-height:1.6}
 button,input,select,textarea{font-family:inherit}
 /* plus d'ombres au repos ni de flou (seules la barre de navigation, la fenêtre métier et le bandeau d'installation flottent) */
 body *:not(nav):not(.mmodal-card):not(#sl-installer):not(.ui){box-shadow:none!important;text-shadow:none!important}
-nav{background:var(--creme);border-bottom:0}
+/* barre du haut brun foncé : le logo doré (celui du favicon) ressort */
+nav{background:var(--fond-sombre);border-bottom:0}
+nav ul a{color:#F2EDE2}
+nav ul a:hover{color:var(--moutarde)}
+nav ul.open a{color:var(--encre)}
+nav ul.open a:hover{color:var(--moutarde-f)}
+.brand b{color:#F2EDE2}
+.brand .lg{background:var(--moutarde)}
+.burger span{background:#F2EDE2}
+.nav-cta{background:var(--moutarde)!important;color:var(--encre)!important}
 nav.scrolled{box-shadow:0 1px 0 rgba(42,33,22,.08)} /* taste-skill-ignore : barre fixe ou écran réel de la plateforme */
 /* ornements retirés : halos, arcs, ruban d'icônes, tirets sous les titres */
 .hero::before,.hero::after,.grand-cta .arc,.quiz::before,.quiz::after,.scene .halo,.ruban,.sec-titre .tiret{display:none!important}
 .slide:not(.on){visibility:hidden}
 @media(prefers-reduced-motion:reduce){.slide:not(.on){display:none}}
 /* marque : à plat */
-.brand .lg,.f-brand .lg{background:var(--moutarde)}
-.brand small{text-transform:none;letter-spacing:0;font-size:14px;font-weight:700;color:var(--taupe)}
+.f-brand .lg{background:var(--moutarde)}
+nav.scrolled{box-shadow:0 1px 0 rgba(0,0,0,.25)} /* taste-skill-ignore : barre fixe */
+.brand small{text-transform:none;letter-spacing:0;font-size:14px;font-weight:700;color:#D9CFB8}
 .brand b{letter-spacing:.01em}
 /* titres : serrés, à gauche ; texte courant dans l'encre pleine, à 16 px et plus */
 .sec-titre{text-align:left;letter-spacing:-.02em;line-height:1.05;font-size:clamp(2rem,3.6vw,3.2rem)}
