@@ -1,13 +1,14 @@
 {
- "source": "dépôt swipe-sell : public/js/contenus-cours.js, outils/modele/catalogue.json, outils/seo/metiers.json",
- "nb_formations": 15,
- "nb_lecons": 152,
- "nb_examens": 30,
+ "source": "dépôt swipe-sell : public/js/contenus-cours.js, outils/modele/catalogue.json et diplomes.json, outils/seo/metiers.json",
+ "nb_formations": 25,
+ "nb_lecons": 272,
+ "nb_examens": 50,
+ "nb_diplomes": 4,
  "vitrine": [
+  "BTS Management commercial opérationnel — préparation candidat libre",
   "Vendre en magasin : accueil, conseil et conclusion",
   "Prospection commerciale B2B",
-  "Créer et piloter une boutique en ligne",
-  "L’IA générative pour vendre"
+  "Créer et piloter une boutique en ligne"
  ],
  "formations": [
   {
@@ -114,6 +115,76 @@
    "duree": "environ 21 h",
    "prix": "Sur demande",
    "url": "https://sell.swipelearn.school/formations/ia-ecommerce.html"
+  },
+  {
+   "nom": "Manager une équipe de vente",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/management-vente.html"
+  },
+  {
+   "nom": "Piloter ses ventes : indicateurs et tableaux de bord",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/tableaux-bord.html"
+  },
+  {
+   "nom": "Vendre à l’international : export et e-commerce transfrontalier",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/international.html"
+  },
+  {
+   "nom": "Créer son commerce ou son activité de vente",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/creer-commerce.html"
+  },
+  {
+   "nom": "Service client digital : chat, messageries et réseaux sociaux",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/service-client-digital.html"
+  },
+  {
+   "nom": "Photo et vidéo produit au smartphone",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/photo-video.html"
+  },
+  {
+   "nom": "CAP Équipier polyvalent du commerce — préparation candidat libre",
+   "niv": "CAP",
+   "duree": "environ 150 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/cap-epc.html"
+  },
+  {
+   "nom": "Bac pro Métiers du commerce et de la vente, préparation candidat libre",
+   "niv": "Bac pro",
+   "duree": "environ 250 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/bac-mcv.html"
+  },
+  {
+   "nom": "BTS Management commercial opérationnel — préparation candidat libre",
+   "niv": "BTS MCO",
+   "duree": "environ 300 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/bts-mco.html"
+  },
+  {
+   "nom": "BTS Négociation et digitalisation de la relation client — préparation",
+   "niv": "BTS NDRC",
+   "duree": "environ 280 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/bts-ndrc.html"
   }
  ],
  "metiers": [
@@ -148,6 +219,21 @@
    "deb": "Entreprises de services, industrie, distribution, agences, travail indépendant."
   },
   {
+   "s": "responsable-magasin",
+   "nom": "Responsable de magasin ou de rayon",
+   "formation": "BTS Management commercial opérationnel — préparation candidat libre",
+   "pitch": "Le responsable de rayon ou de magasin fait vivre un point de vente : il anime l’équipe, organise le planning, met en valeur l’offre, suit le chiffre d’affaires et la marge, gère les stocks et veille à la satisfaction des clients.",
+   "missions": [
+    "Animer et organiser l’équipe de vente",
+    "Fixer et suivre les objectifs",
+    "Piloter le chiffre d’affaires, la marge et les stocks",
+    "Mettre en valeur l’offre et les promotions",
+    "Traiter les réclamations et fidéliser",
+    "Rendre compte à la direction ou à l’enseigne"
+   ],
+   "deb": "Magasins indépendants, enseignes, grandes et moyennes surfaces, réseaux de franchise."
+  },
+  {
    "s": "e-commerce",
    "nom": "E-commerçant et chargé d’e-commerce",
    "formation": "Créer et piloter une boutique en ligne",
@@ -165,7 +251,7 @@
   {
    "s": "commercant",
    "nom": "Commerçant et créateur d’entreprise",
-   "formation": "Calculs commerciaux, devis et facturation",
+   "formation": "Créer son commerce ou son activité de vente",
    "pitch": "Le commerçant indépendant fait tout : il achète, fixe ses prix, vend, tient sa vitrine, fidélise ses clients, facture, et de plus en plus vend aussi en ligne. Ces formations courtes couvrent ce qu’il faut maîtriser pour vendre et gagner sa vie.",
    "missions": [
     "Fixer ses prix et connaître ses marges",
