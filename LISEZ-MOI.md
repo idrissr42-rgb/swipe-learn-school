@@ -1,9 +1,9 @@
-# Site du groupe Swipe Learn School (swipeandlearn.school)
+# Site du groupe Swipe Learn School (swipelearn.school)
 
 Page d'accueil du groupe : les sept écoles, le test d'orientation, les métiers et le comparateur des formations de Cook.
 Seule Cook est ouverte ; les six autres écoles proposent « Être prévenu de l'ouverture ».
 
-Mise en ligne : un site Netlify relié à ce dossier (publish = public), puis le domaine swipeandlearn.school pointé dessus.
+Mise en ligne : un site Netlify relié à ce dossier (publish = public), puis le domaine swipelearn.school pointé dessus.
 
 Reconstruire la page après une modification : `python3 outils/construire.py`
 (source : outils/source/maquette-origine.html pour le design, outils/source/formations-cook.json pour le catalogue de Cook).

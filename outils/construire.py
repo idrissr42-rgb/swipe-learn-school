@@ -1,4 +1,4 @@
-# Site du groupe Swipe Learn School (swipeandlearn.school) : version vraie de la maquette.
+# Site du groupe Swipe Learn School (swipelearn.school) : version vraie de la maquette.
 # Entrée : maquette-origine.html (design et structure gardés) et formations-cook.json (catalogue réel de Cook).
 # Sortie : public/index.html, public/sitemap.xml, public/robots.txt, public/404.html.
 # Règles : nom public « Swipe Learn School » (jamais « Swipe and … »), seule Cook est ouverte, aucun financement
@@ -9,8 +9,8 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 RAC = os.path.dirname(ICI)
 h = open(os.path.join(ICI, 'source', 'maquette-origine.html'), encoding='utf-8').read()
 F = json.load(open(os.path.join(ICI, 'source', 'formations-cook.json'), encoding='utf-8'))
-COOK = 'https://cook.swipeandlearn.school'
-SITE = 'https://swipeandlearn.school'
+COOK = 'https://cook.swipelearn.school'
+SITE = 'https://swipelearn.school'
 CONTACT = 'contact@swipeandlearn.school'
 NB_F, NB_L, NB_X = 50, 651, 100
 E = lambda s: html.escape(str(s), quote=True)
