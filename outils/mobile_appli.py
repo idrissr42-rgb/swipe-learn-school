@@ -22,14 +22,15 @@ def tete():
 
 STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
 .sl-points{display:none}
-#sl-installer{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:120;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--brun);color:var(--creme);border-radius:18px;padding:12px 12px 12px 14px;box-shadow:0 18px 40px rgba(20,14,4,.35);transform:translateY(150%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-#sl-installer.on{transform:none}
+#sl-installer{position:fixed;left:12px;right:12px;top:88px;z-index:120;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--brun);color:var(--creme);border-radius:18px;padding:12px 12px 12px 14px;box-shadow:0 18px 40px rgba(20,14,4,.35);transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s} /* taste-skill-ignore : bandeau qui flotte, comme une fenêtre */
+#sl-installer.on{transform:none;opacity:1;pointer-events:auto}
 #sl-installer img{width:42px;height:42px;border-radius:11px;flex:none}
-#sl-installer .t{flex:1;min-width:0;font-size:.82rem;line-height:1.35;color:#D9CFB8}
-#sl-installer .t b{display:block;font-family:'Baloo 2';font-size:.98rem;color:var(--creme)}
+#sl-installer .t{flex:1;min-width:0;font-size:14px;line-height:1.35;color:#D9CFB8}
+#sl-installer .t b{display:block;font-family:'Baloo 2';font-size:1rem;color:var(--creme)}
+@media(max-width:700px){#sl-installer{padding:8px 8px 8px 10px;gap:10px;border-radius:14px}#sl-installer img{width:34px;height:34px;border-radius:9px}#sl-installer .t span{display:none}#sl-installer .oui{padding:8px 14px}}
 #sl-installer button{border:0;border-radius:999px;font-family:'Baloo 2';font-weight:700;cursor:pointer;flex:none}
-#sl-installer .oui{background:var(--moutarde);color:#fff;padding:10px 16px;font-size:.9rem}
-#sl-installer .non{background:none;color:#C9BE9E;padding:10px 4px;font-size:.8rem}
+#sl-installer .oui{background:var(--moutarde);color:var(--encre);padding:10px 16px;font-size:15px}
+#sl-installer .non{background:none;color:#C9BE9E;padding:10px 4px;font-size:14px}
 #sl-installer .partager{display:inline-block;vertical-align:-3px;width:16px;height:16px}
 @media(prefers-reduced-motion:reduce){#sl-installer{transition:none}}
 @media(max-width:700px){
@@ -42,6 +43,7 @@ STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
   nav .wrap{height:64px}
   .brand{gap:10px}
   .brand .lg{width:40px;height:40px;border-radius:12px}
+  #sl-installer{top:72px}
   /* accueil */
   .hero{padding:24px 0 30px}
   .hero .wrap{gap:8px}
@@ -52,7 +54,7 @@ STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
   .hero-actions{flex-direction:column;gap:8px;margin-bottom:14px}
   .hero-actions .btn{width:100%;min-height:48px;padding:11px 18px;font-size:.95rem;justify-content:center}
   .hero-actions .btn .fl{width:14px;height:14px}
-  .confiance{gap:6px 14px;font-size:.74rem}
+  .confiance{gap:6px 14px;font-size:14px}
   .scene{width:220px;height:170px}
   .scene .halo{width:150px;height:150px}
   .slide svg{width:84px;height:84px}
@@ -65,15 +67,17 @@ STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
   .chiffres{padding:24px 0}
   .chiffres .wrap{gap:16px 10px}
   .chiffres .v{font-size:1.6rem}
-  .chiffres .l{font-size:.72rem;line-height:1.35}
+  .chiffres .l{font-size:14px;line-height:1.35}
   /* écoles */
   .modalites-legende{gap:10px;margin-bottom:18px}
-  .mod-lg{padding:12px 14px;font-size:.82rem;line-height:1.45}
+  .mod-lg{padding:12px 14px;font-size:15px;line-height:1.45}
   .ecole{padding:18px 16px 16px;gap:10px}
   .ecole-ic{width:46px;height:46px;border-radius:14px}
   .ecole-ic svg{width:26px;height:26px}
   .ecole ul{gap:6px}
-  .ecole li{padding:8px 11px;font-size:.82rem;gap:10px;border-radius:12px}
+  .ecole li{padding:8px 11px;font-size:15px;gap:4px 10px;border-radius:12px;flex-wrap:wrap}
+  .ecole li b{flex:1 1 55%}
+  .ecole li span{margin-left:auto}
   .ecole.bientot ul li:nth-child(n+4):not(:last-child){display:none}
   .ecole .btn{padding:11px 18px;font-size:.9rem}
   /* parcours : une ligne de temps verticale */
@@ -81,27 +85,27 @@ STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
   .etape{display:grid;grid-template-columns:44px 1fr;column-gap:14px;text-align:left;padding:0;max-width:none;margin:0}
   .etape .pt{width:44px;height:44px;margin:0;font-size:1.1rem;border-width:2px;grid-row:1/3;box-shadow:none}
   .etape h4{margin:4px 0 2px;font-size:.98rem}
-  .etape p{font-size:.84rem;line-height:1.5}
+  .etape p{font-size:15px;line-height:1.5}
   /* test, méthode, CAP intensif, métiers */
   .quiz-box{padding:22px 16px}
-  .meth{padding:18px 16px}
+  .meth-grid .meth{padding:18px 16px}
   .meth-ic{width:44px;height:44px;border-radius:13px;margin-bottom:10px}
   .meth h4{font-size:1rem}
-  .meth p{font-size:.86rem;line-height:1.55}
+  .meth p{font-size:16px;line-height:1.55}
   .intensif-grid{gap:12px;margin-top:18px}
-  .intensif-grid .carte{padding:16px;font-size:.88rem;line-height:1.5}
+  .intensif-grid .carte{padding:16px;font-size:16px;line-height:1.5}
   .intensif-cta{gap:8px}
   .intensif-cta .btn{flex:1 1 100%;justify-content:center}
   .mcard-top{padding:14px 16px}
   .mcard-body{padding:14px 16px 16px;gap:10px}
   /* comparateur : deux lignes par formation */
-  .comp-filtres{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;gap:6px;margin:0 -16px 16px;padding:0 16px 4px;scrollbar-width:none}
+  .comp-filtres{flex-wrap:wrap;justify-content:flex-start;gap:6px;margin:0 0 16px;padding:0}
   .comp-filtres::-webkit-scrollbar{display:none}
-  .comp-filtre{flex:none;padding:7px 14px;font-size:.8rem}
+  .comp-filtre{flex:none;padding:7px 14px;font-size:14px}
   .comp-row{grid-template-columns:auto auto 1fr auto;gap:6px 10px;padding:12px 14px;align-items:center}
-  .comp-row .cf-nom{grid-column:1/-1;font-size:.9rem;line-height:1.25}
+  .comp-row .cf-nom{grid-column:1/-1;font-size:16px;line-height:1.25}
   .comp-cell::before{display:none}
-  .comp-cell{font-size:.8rem}
+  .comp-cell{font-size:14px}
   .comp-row .btn-mini{margin:0;padding:6px 14px}
   /* financement, questions, appel final, pied de page */
   .gcard summary{padding:14px 16px;gap:12px}
@@ -113,9 +117,9 @@ STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
   footer{padding:34px 0 18px}
   footer .wrap{gap:22px}
   footer .wrap>div:nth-child(3) ul{display:flex;flex-wrap:wrap;gap:4px 16px}
-  .legal{margin-top:6px;font-size:.72rem;line-height:1.5}
+  .legal{margin-top:6px;font-size:13px;line-height:1.5}
   /* carrousels à faire glisser */
-  .sl-car{display:flex!important;gap:12px!important;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:16px;margin-inline:-16px;padding:4px 16px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .sl-car{display:flex!important;gap:12px!important;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;margin-inline:0;padding:4px 0 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .sl-car::-webkit-scrollbar{display:none}
   .sl-car>*{flex:0 0 min(84%,340px);scroll-snap-align:start;margin:0!important;max-width:none!important}
   .sl-car>.rv{opacity:1;transform:none;transition-delay:0s!important}
@@ -131,7 +135,7 @@ STYLE = r'''<style>/* SL_MOBILE : confort sur téléphone */
 SCRIPT = r'''<script>/* SL_APPLI : carrousels sur téléphone, application installable */
 (function(){
   /* ---------- carrousels à faire glisser (téléphone seulement) */
-  var mq=window.matchMedia('(max-width:700px)'),CIBLES=['.ecoles-grid','.intensif-grid','.meth-grid','#metiersGrid'];
+  var mq=window.matchMedia('(max-width:700px)'),CIBLES=['.ecoles-grid','.meth-ecrans','#metiersGrid'];
   function cartes(el){return [].slice.call(el.children).filter(function(c){return c.nodeType===1;});}
   function demonter(el){if(!el.classList.contains('sl-car'))return;el.classList.remove('sl-car');if(el._slPoints){el._slPoints.remove();el._slPoints=null;}el.removeEventListener('scroll',el._slScroll);}
   function monter(el){
@@ -168,14 +172,15 @@ SCRIPT = r'''<script>/* SL_APPLI : carrousels sur téléphone, application insta
   }
   var PARTAGER='<svg class="partager" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
   function lancer(){if(!invite)return;invite.prompt();var i=invite;invite=null;if(i.userChoice)i.userChoice.then(function(r){if(r&&r.outcome!=='accepted')noterRefus();majLien();});}
-  function proposerAndroid(){montrer('<b>Installer Swipe Learn School</b>Sur votre écran d’accueil, comme une application.','Installer',lancer);}
+  var telephone=window.matchMedia('(max-width:700px)');
+  function proposerAndroid(){montrer('<b>Installer l’application</b><span>Swipe Learn School sur votre écran d’accueil.</span>','Installer',lancer);}
   function proposerIos(){montrer('<b>Installer Swipe Learn School</b>Touchez '+PARTAGER+' Partager, puis « Sur l’écran d’accueil ».',null,null);}
   function auBonMoment(f){var fait=false;function go(){if(fait)return;fait=true;removeEventListener('scroll',sc);f();}function sc(){if(window.scrollY>window.innerHeight*.9)go();}addEventListener('scroll',sc,{passive:true});setTimeout(go,15000);}
   var lien=document.getElementById('sl-installer-lien');
   function majLien(){if(lien&&lien.parentNode)lien.parentNode.style.display=installee?'none':'';}
   if(lien)lien.addEventListener('click',function(e){e.preventDefault();if(invite)lancer();else if(ios)proposerIos();
     else montrer('<b>Installer l’application</b>Dans le menu de votre navigateur, choisissez « Installer l’application » ou « Ajouter à l’écran d’accueil ».',null,null);});
-  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();invite=e;majLien();if(!installee&&!refusRecent())auBonMoment(proposerAndroid);});
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();invite=e;majLien();if(!installee&&!refusRecent()&&telephone.matches)auBonMoment(proposerAndroid);});
   window.addEventListener('appinstalled',function(){installee=true;invite=null;fermer();majLien();});
   if(ios&&!installee&&!refusRecent())auBonMoment(proposerIos);
   majLien();

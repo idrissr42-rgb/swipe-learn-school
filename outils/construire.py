@@ -64,8 +64,8 @@ rep('<a class="brand" href="#">', '<a class="brand" href="/">')
 rep_re(r'<li><a href="#quiz">Test d\'orientation</a></li>\s*<li><a href="#ecoles">Nos 7 écoles</a></li>', '<li><a href="#ecoles">Nos écoles</a></li><li><a href="#intensif">CAP intensif</a></li>')
 
 # ------------------------------------------------------------------ accueil (hero)
-rep('<span class="sur"><i></i>Le groupe qui forme aux métiers qui recrutent</span>', '<span class="sur"><i></i>Une même méthode dans chaque école</span>')
-rep('<h1>Sept écoles.<br>Un seul geste : <span class="m">apprendre.</span></h1>', '<h1>Un groupe, sept écoles.<br>Un seul geste&nbsp;: <span class="m">apprendre.</span></h1>')
+rep_re(r'\s*<span class="sur"><i></i>Le groupe qui forme aux métiers qui recrutent</span>', '')
+rep('<h1>Sept écoles.<br>Un seul geste : <span class="m">apprendre.</span></h1>', '<h1>Un groupe, sept écoles.</h1>\n      <p class="geste">Un seul geste&nbsp;: apprendre.</p>')
 rep_re(r'<p>Cuisine, vente, santé, numérique, bâtiment, transport, gestion : Swipe and Learn réunit sept écoles.*?</p>',
        '<p>Cuisine, vente, aide à la personne, numérique, bâtiment, transport, gestion : Swipe Learn School réunit sept écoles. La théorie se suit en ligne avec un formateur du métier ; la pratique se fait en entreprise, près de chez vous. Cook, l’école de cuisine, est ouverte ; les six autres ouvrent une à une.</p>')
 rep_re(r'<a class="btn btn-ghost" href="#ecoles">Voir les écoles</a>', f'<a class="btn btn-ghost" href="{COOK}/">Découvrir Cook, l’école de cuisine</a>')
@@ -222,13 +222,13 @@ rep('<b class="baloo" style="color:var(--creme);letter-spacing:.05em">SWIPE AND 
 rep('<p style="font-size:.88rem;max-width:36ch">Le groupe de formation aux métiers qui recrutent. Sept écoles, une méthode, des certifications reconnues.</p>',
     '<p style="font-size:.88rem;max-width:36ch">Organisme de formation. Sept écoles, une méthode : la théorie en ligne, la pratique sur le terrain.</p>')
 rep('<p style="margin-top:12px;font-size:.88rem">15 rue des Écoles — 69000 Lyon<br>contact@swipeandlearn.com · 04 00 00 00 00</p>',
-    f'<p style="margin-top:12px;font-size:.88rem">40 rue de la Badouillère — 42000 Saint-Étienne<br><a href="mailto:{CONTACT}" style="color:inherit">{CONTACT}</a></p>')
+    f'<p style="margin-top:12px;font-size:.88rem">40 rue de la Badouillère, 42000 Saint-Étienne<br><a href="mailto:{CONTACT}" style="color:inherit">{CONTACT}</a></p>')
 rep_re(r'<li><i style="background:var\(--cook\)"></i><a href="swipe-and-cook-plateforme.html">Swipe and Cook — Cuisine</a></li>',
-       f'<li><i style="background:var(--cook)"></i><a href="{COOK}/">Cook — cuisine, pâtisserie, bar et hôtellerie</a></li>')
+       f'<li><i style="background:var(--cook)"></i><a href="{COOK}/">Cook : cuisine, pâtisserie, bar et hôtellerie</a></li>')
 for k, lib in [('sell', 'Vente &amp; e-commerce'), ('care', 'Santé'), ('code', 'Numérique'), ('build', 'Bâtiment'), ('drive', 'Transport'), ('manage', 'Gestion &amp; secrétariat')]:
     nouveau = {'care': 'Aide à la personne'}.get(k, lib)
     rep(f'<li><i style="background:var(--{k})"></i><a href="swipe-and-{k}-plateforme.html">Swipe and {NOMS[k]} — {lib}</a></li>',
-        f'<li><i style="background:var(--{k})"></i><span>{NOMS[k]} — {nouveau} · bientôt</span></li>')
+        f'<li><i style="background:var(--{k})"></i><span>{NOMS[k]} : {nouveau}, bientôt</span></li>')
 rep('<li><a href="#guide">Financements</a></li>', '<li><a href="#guide">Financement</a></li>')
 rep('<li><a href="#">Accessibilité &amp; handicap</a></li>', '<li><a href="#faq">Accessibilité &amp; handicap</a></li>')
 rep_re(r'<div class="legal">.*?</div>',
@@ -256,7 +256,7 @@ metiers_js = "const METIERS=[\n" + ",\n".join(
 rep_re(r'const METIERS=\[.*?\n\];', metiers_js.replace('\\', '\\\\'))
 rep("const METIER_PHARE={\n  cook:'Cuisinier',sell:'Conseiller de vente',care:'Assistant de vie aux familles',", "const METIER_PHARE={\n  cook:'Cuisinier',sell:'Conseiller de vente',care:'Assistant de vie aux familles',")
 # fiches métiers : plus de salaires ni de niveaux de demande (non sourcés) ; lien vers la page métier de Cook
-rep('<div class="mcard-stats"><span><i>●</i> ${m.sal}</span><span><i>●</i> Demande : ${m.dem}</span></div>', '<div class="mcard-stats"><span><i>●</i> ${m.for}</span></div>')
+rep('<div class="mcard-stats"><span><i>●</i> ${m.sal}</span><span><i>●</i> Demande : ${m.dem}</span></div>', '<div class="mcard-stats"><span>${m.for}</span></div>')
 rep_re(r'<div class="mmodal-stats">.*?</div>\s*</div>\s*(?=<h5>Le métier</h5>)', '<div class="mmodal-stats"><div><b>${m.for}</b><small>Formation associée</small></div></div>\n      ')
 rep('<a class="btn btn-m mmodal-cta" href="${e.url}">Découvrir la formation', '<a class="btn btn-m mmodal-cta" href="${m.url}">Découvrir le métier et ses formations')
 rep_re(r'<p style="font-size:\.74rem;color:var\(--taupe\);margin-top:14px">Salaires et niveaux de demande.*?</p>', '')
@@ -282,9 +282,27 @@ rep('<p style="font-size:.74rem;color:#C9BE9E;margin-top:18px">Ce test est indic
 # plus de renvoi par script vers des adresses de maquette : les liens sont de vrais liens
 rep_re(r'<script>\s*\(function\(\)\{\s*var ADRESSES=.*?\}\)\(\);\s*</script>', '')
 
-# ------------------------------------------------------------------ téléphone et application installable (outils/mobile_appli.py)
+# ------------------------------------------------------------------ passage de design (outils/style_gout.py)
 import sys
 sys.path.insert(0, ICI)
+import style_gout as SG
+rep_re(r'<link[^>]*fonts\.googleapis\.com/css2[^>]*>', SG.precharger() + '<style>' + SG.faces() + '</style>')
+rep_re(r'<link rel="preconnect"[^>]*>\s*', '', n=h.count('<link rel="preconnect"'))
+h = re.sub(r'<style>(.*?)</style>', lambda m: '<style>' + (m.group(1) if '@font-face' in m.group(1) or 'SL_' in m.group(1) else SG.nettoyer(m.group(1))) + '</style>', h, flags=re.S)
+rep('</head>', SG.STYLE + '\n</head>')
+# méthode : les six points sans icônes, à côté de vrais écrans de la plateforme de Cook
+def _methode(m):
+    items = re.sub(r'\s*<span class="meth-ic">.*?</span>', '', m.group(1), flags=re.S)
+    return '<div class="meth-split">\n      ' + SG.ECRANS + '\n      <div class="meth-liste">' + items + '</div>\n    </div>\n  </div>\n</section>'
+rep_re(r'<div class="meth-grid">(.*?)</div>\s*</div>\s*</section>', _methode)
+rep_re(r'(<div class="intensif-grid">.*?</div>\s*</div>)(\s*<div class="intensif-cta)', lambda m: '<div class="intensif-split">' + m.group(1) + SG.EXAMEN + '</div>' + m.group(2))
+# métiers : plus de pastille d'icône
+rep('<span class="mcard-ic">${svg(m.ec)}</span>', '')
+rep_re(r'(<span class="mcard-more">Voir la fiche métier)\s*<svg.*?</svg>', r'\1')
+# pied de page : le nom revient en grand
+rep('<div class="legal">', '<p class="f-nom">Swipe Learn School</p>\n    <div class="legal">')
+
+# ------------------------------------------------------------------ téléphone et application installable (outils/mobile_appli.py)
 import mobile_appli as MA
 rep('</head>', MA.tete() + '\n' + MA.STYLE + '\n</head>')
 rep('<li><a href="#faq">Accessibilité &amp; handicap</a></li>',
@@ -302,6 +320,7 @@ open(os.path.join(RAC, 'public/index.html'), 'w', encoding='utf-8').write(h)
 open(os.path.join(RAC, 'public/robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
 open(os.path.join(RAC, 'public/sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>{SITE}/</loc><priority>1.0</priority></url>\n</urlset>\n')
 open(os.path.join(RAC, 'public/404.html'), 'w', encoding='utf-8').write(f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page introuvable · Swipe Learn School</title><meta name="robots" content="noindex"></head><body style="font-family:Nunito,Arial,sans-serif;padding:40px;color:#2E2415;background:#FAF6EE"><h1>Cette page n’existe pas</h1><p><a href="/">Retour à l’accueil de Swipe Learn School</a> · <a href="{COOK}/">Cook, l’école de cuisine</a></p></body></html>')
+SG.copier_polices(os.path.join(ICI, 'source', 'polices'), os.path.join(RAC, 'public'))
 MA.fichiers(os.path.join(RAC, 'public'), DESC, [('Nos écoles', '/#ecoles'), ('Test d’orientation', '/#quiz'), ('Comparer les formations', '/#comparateur')])
 open(os.path.join(RAC, 'netlify.toml'), 'w').write('[build]\n  publish = "public"\n\n[[headers]]\n  for = "/*"\n  [headers.values]\n    X-Content-Type-Options = "nosniff"\n    Referrer-Policy = "strict-origin-when-cross-origin"\n'
                                                    '\n[[headers]]\n  for = "/sw.js"\n  [headers.values]\n    Cache-Control = "no-cache"\n')
