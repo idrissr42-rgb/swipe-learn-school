@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swipe Learn School : écoles de formation en ligne</title>
+<meta name="description" content="Sept écoles de formation, une méthode : cours en ligne avec un formateur, pratique près de chez vous. Cook, l’école de cuisine, est ouverte.">
+<link rel="canonical" href="https://swipeandlearn.school/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Swipe Learn School"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="website"><meta property="og:url" content="https://swipeandlearn.school/"><meta property="og:title" content="Swipe Learn School : écoles de formation en ligne"><meta property="og:description" content="Sept écoles de formation, une méthode : cours en ligne avec un formateur, pratique près de chez vous. Cook, l’école de cuisine, est ouverte."><meta property="og:image" content="https://swipeandlearn.school/logos/icone-groupe-512.png">
+<link rel="icon" href="/favicon.ico">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://swipeandlearn.school/#site", "name": "Swipe Learn School", "url": "https://swipeandlearn.school/", "inLanguage": "fr-FR", "publisher": {"@id": "https://swipeandlearn.school/#organisation"}}, {"@type": "EducationalOrganization", "@id": "https://swipeandlearn.school/#organisation", "name": "Swipe Learn School", "legalName": "SWIPE LEARN SCHOOL", "url": "https://swipeandlearn.school/", "logo": "https://swipeandlearn.school/logos/icone-groupe-512.png", "email": "contact@swipeandlearn.school", "identifier": {"@type": "PropertyValue", "propertyID": "SIRET", "value": "13129496900012"}, "address": {"@type": "PostalAddress", "streetAddress": "40 rue de la Badouillère", "postalCode": "42000", "addressLocality": "Saint-Étienne", "addressRegion": "Auvergne-Rhône-Alpes", "addressCountry": "FR"}, "areaServed": [{"@type": "AdministrativeArea", "name": "Auvergne-Rhône-Alpes"}, {"@type": "Country", "name": "France"}], "subOrganization": [{"@type": "EducationalOrganization", "@id": "https://cook.swipeandlearn.school/#ecole", "name": "Swipe Learn School · Cook", "url": "https://cook.swipeandlearn.school/"}]}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#FAF6EE; --beige:#EFE6D4; --beige-f:#DFD2B8; --blanc:#FFFDF8;
+  --moutarde:#C89B2E; --moutarde-f:#A67E1C; --moutarde-p:#F4E9CC;
+  --encre:#2E2415; --brun:#2B2213; --taupe:#82755E; --terra:#B4613C;
+  --cook:#4A6FB5; --cook-p:#EBF0F8;
+  --sell:#C96A2E; --sell-p:#F8EDE4;
+  --care:#4E9B84; --care-p:#E9F3F0;
+  --code:#7C6AA6; --code-p:#F0EDF6;
+  --build:#B8892E; --build-p:#F7EFDD;
+  --drive:#A8524E; --drive-p:#F6EAE9;
+  --manage:#9C5A80; --manage-p:#F5EAF1;
+  --r:26px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--creme);color:var(--encre);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4,.baloo{font-family:'Baloo 2',cursive}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:999px;font-family:'Baloo 2';font-weight:700;font-size:1rem;padding:14px 30px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.btn-m{background:var(--moutarde);box-shadow:0 10px 26px rgba(200,155,46,.35)}
+.btn-ghost{background:transparent;color:var(--encre);box-shadow:0 0 0 2px var(--encre) inset}
+.btn .fl{width:18px;height:18px}
+
+/* révélation au scroll */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+
+/* ===== NAV ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.9);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+nav.scrolled{border-bottom-color:var(--beige-f);box-shadow:0 8px 30px rgba(46,36,21,.08)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--encre)}
+.brand .lg{width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,var(--moutarde),var(--moutarde-f));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 18px rgba(166,126,28,.35)}
+.brand .lg svg{width:27px;height:27px}
+.brand b{font-family:'Baloo 2';font-size:1.15rem;letter-spacing:.05em}
+.brand small{display:block;font-size:.66rem;font-weight:800;color:var(--taupe);letter-spacing:.16em;text-transform:uppercase}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav ul a{text-decoration:none;color:var(--encre);font-weight:800;font-size:.92rem}
+nav ul a:hover{color:var(--moutarde-f)}
+.nav-cta{background:var(--encre);color:var(--creme)!important;border-radius:999px;padding:10px 22px;font-family:'Baloo 2'}
+nav ul.open{display:flex;position:absolute;top:80px;left:16px;right:16px;flex-direction:column;gap:4px;background:var(--blanc);border:1px solid var(--beige-f);border-radius:20px;padding:14px;box-shadow:0 24px 54px rgba(46,36,21,.18)}
+nav ul.open a{display:block;padding:12px 16px;border-radius:12px}
+nav ul.open a:active{background:var(--moutarde-p)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:10px}
+.burger span{display:block;width:26px;height:3px;border-radius:2px;background:var(--encre);margin:5px 0;transition:.25s}
+.burger.on span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media(max-width:940px){nav ul{display:none}.burger{display:block}}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding:84px 0 76px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,var(--moutarde-p),transparent 65%);top:-220px;right:-160px}
+.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;position:relative}
+.sur{display:inline-flex;align-items:center;gap:10px;background:var(--blanc);border:1.5px solid var(--beige-f);color:var(--moutarde-f);font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;border-radius:999px;padding:8px 18px;margin-bottom:22px;box-shadow:0 6px 16px rgba(46,36,21,.06)}
+.sur i{width:8px;height:8px;border-radius:50%;background:var(--moutarde)}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4.2rem);font-weight:800;line-height:1.22;letter-spacing:.012em;word-spacing:.06em}
+.hero h1 .m{color:var(--moutarde-f);position:relative;white-space:nowrap;z-index:1}
+.hero h1 .m::after{content:"";position:absolute;left:-2px;right:-2px;bottom:5px;height:14px;background:var(--moutarde-p);z-index:-1;border-radius:7px}
+.hero p{margin:26px 0 34px;line-height:1.75;font-size:1.08rem;max-width:52ch;color:#5C513C}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.confiance{display:flex;gap:22px;flex-wrap:wrap;font-size:.82rem;font-weight:800;color:var(--taupe)}
+.confiance span{display:inline-flex;align-items:center;gap:8px}
+.confiance svg{width:16px;height:16px;color:var(--moutarde-f)}
+
+/* carrousel métiers (icônes libres, sans cadre) */
+.carrousel{display:flex;flex-direction:column;align-items:center;gap:8px;user-select:none}
+.scene{position:relative;width:420px;height:400px;max-width:100%;display:flex;align-items:center;justify-content:center}
+.scene .halo{position:absolute;width:330px;height:330px;border-radius:50%;background:var(--cp,var(--moutarde-p));filter:blur(34px);transition:background .7s;opacity:.9}
+.slide{position:absolute;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;transform:scale(.65) translateY(16px);transition:opacity .55s ease,transform .55s ease;pointer-events:none;text-align:center}
+.slide.on{opacity:1;transform:none}
+.slide svg{width:225px;height:225px;color:var(--c);filter:drop-shadow(0 20px 32px rgba(46,36,21,.2));animation:flotteI 5.5s ease-in-out infinite}
+@keyframes flotteI{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.slide b{font-family:'Baloo 2';font-size:1.55rem;color:var(--encre);line-height:1.1}
+.slide small{font-size:.8rem;font-weight:800;color:var(--taupe);letter-spacing:.04em}
+.selecteur{display:flex;gap:20px;align-items:flex-end}
+.selecteur button{background:none;border:none;cursor:pointer;padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:7px;opacity:.32;transform:scale(1);transition:opacity .3s,transform .3s;color:var(--c)}
+.selecteur button svg{width:38px;height:38px}
+.selecteur button .barre{width:26px;height:4px;border-radius:2px;background:currentColor;opacity:0;transition:opacity .3s}
+.selecteur button.on{opacity:1;transform:scale(1.22)}
+.selecteur button.on .barre{opacity:1}
+.selecteur button:hover{opacity:.85}
+.s-cook{--c:var(--cook);--cp:var(--cook-p)} .s-sell{--c:var(--sell);--cp:var(--sell-p)}
+.s-care{--c:var(--care);--cp:var(--care-p)} .s-code{--c:var(--code);--cp:var(--code-p)}
+.s-build{--c:var(--build);--cp:var(--build-p)} .s-drive{--c:var(--drive);--cp:var(--drive-p)} .s-manage{--c:var(--manage);--cp:var(--manage-p)}
+@media(max-width:940px){.hero .wrap{grid-template-columns:1fr;gap:40px}.carrousel{order:2}}
+@media(max-width:640px){
+  .wrap{padding:0 18px}
+  section{padding:60px 0}
+  .hero{padding:52px 0 60px}
+  .hero h1{line-height:1.24}
+  .hero p{font-size:1rem}
+  .hero-actions .btn{flex:1;justify-content:center;min-height:48px}
+  .confiance{gap:12px 18px;font-size:.78rem}
+  .scene{width:300px;height:300px}
+  .scene .halo{width:240px;height:240px}
+  .slide svg{width:160px;height:160px}
+  .slide b{font-size:1.3rem}
+  .selecteur{gap:8px;flex-wrap:wrap;justify-content:center}
+  .selecteur button{padding:10px 6px}
+  .selecteur button svg{width:32px;height:32px}
+  .ruban em{width:28px;height:28px;margin:0 14px}
+  .chiffres{padding:40px 0}
+  .chiffres .v{font-size:1.9rem}
+  .chiffres .l{font-size:.76rem}
+  .sec-sub{margin-bottom:38px}
+  .etapes{grid-template-columns:1fr;row-gap:30px}
+  .etape{max-width:340px;margin:0 auto}
+  .ecole{padding:22px 20px 20px}
+  .ecole-ic{width:54px;height:54px;border-radius:16px}
+  .ecole-ic svg{width:32px;height:32px}
+  .ecole h3{font-size:1.1rem}
+  .temo{padding:22px}
+  .grand-cta .btn{width:100%;justify-content:center;min-height:50px}
+}
+
+/* ===== RUBAN DEFILANT (icônes) ===== */
+.ruban{background:var(--moutarde);overflow:hidden;padding:13px 0;transform:rotate(-1.2deg);margin:14px -20px 0;box-shadow:0 10px 30px rgba(166,126,28,.25)}
+.ruban-piste{display:flex;white-space:nowrap;animation:defile 30s linear infinite;width:max-content}
+.ruban span{display:inline-flex;align-items:center}
+.ruban em{display:inline-flex;width:34px;height:34px;margin:0 20px}
+.ruban em svg{width:100%;height:100%}
+.ruban i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.65);display:inline-block}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* ===== CHIFFRES (bande sombre premium) ===== */
+.chiffres{background:var(--brun);color:var(--creme);padding:52px 0;margin-top:34px}
+.chiffres .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.chiffres .v{font-family:'Baloo 2';font-size:2.5rem;font-weight:800;color:var(--moutarde)}
+.chiffres .l{font-size:.85rem;font-weight:700;opacity:.85}
+@media(max-width:880px){.chiffres .wrap{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== SECTIONS ===== */
+section{padding:92px 0}
+.sec-titre{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;text-align:center}
+.sec-titre .tiret{display:block;width:64px;height:6px;border-radius:3px;background:var(--moutarde);margin:14px auto 0}
+.sec-sub{text-align:center;color:var(--taupe);font-weight:700;max-width:66ch;margin:16px auto 54px}
+
+/* ===== ECOLES ===== */
+.ecoles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px}
+.ecole{--c:var(--moutarde);--cp:var(--moutarde-p);background:var(--blanc);border-radius:var(--r);padding:28px 28px 24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 12px 32px rgba(46,36,21,.08);border:1px solid #EFE7D6;transition:transform .18s,box-shadow .18s}
+.ecole:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(46,36,21,.13)}
+.ecole-head{display:flex;align-items:center;gap:16px}
+.ecole-ic{width:64px;height:64px;border-radius:20px;background:var(--cp);color:var(--c);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ecole-ic svg{width:38px;height:38px}
+.ecole h3{font-size:1.24rem;line-height:1.12;letter-spacing:.03em}
+.ecole h3 small{display:block;font-family:'Nunito';font-size:.78rem;font-weight:800;color:var(--taupe);letter-spacing:.02em}
+.ecole .tag-etat{align-self:flex-start;font-family:'Baloo 2';font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 13px;background:var(--cp);color:var(--c)}
+.ecole ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:2px 0 8px}
+.ecole li{background:var(--creme);border-radius:14px;padding:10px 14px;font-size:.87rem;display:flex;gap:12px;align-items:center}
+.ecole li::before{content:"";width:14px;height:3px;border-radius:2px;background:var(--c);flex-shrink:0}
+.ecole li b{font-weight:800;flex:1}
+.ecole li span{font-size:.73rem;font-weight:800;color:var(--taupe);white-space:nowrap}
+.ecole-meta{display:flex;gap:8px;flex-wrap:wrap;margin:-2px 0 4px}
+.ecole-meta span{display:inline-flex;align-items:center;gap:6px;background:var(--cp);color:var(--c);font-family:'Baloo 2';font-weight:700;font-size:.72rem;border-radius:999px;padding:5px 12px}
+.ecole-meta span svg{width:13px;height:13px}
+.ecole .btn{margin-top:auto;background:var(--c);justify-content:center;padding:12px 24px;font-size:.95rem;box-shadow:0 8px 20px rgba(46,36,21,.14)}
+.e-cook{--c:var(--cook);--cp:var(--cook-p)} .e-sell{--c:var(--sell);--cp:var(--sell-p)}
+.e-care{--c:var(--care);--cp:var(--care-p)} .e-code{--c:var(--code);--cp:var(--code-p)}
+.e-build{--c:var(--build);--cp:var(--build-p)} .e-drive{--c:var(--drive);--cp:var(--drive-p)} .e-manage{--c:var(--manage);--cp:var(--manage-p)}
+
+/* ===== PARCOURS ===== */
+.parcours{background:var(--beige)}
+.etapes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;counter-reset:etape}
+.etapes::before{content:"";position:absolute;top:34px;left:12%;right:12%;height:3px;background:var(--beige-f);border-radius:2px}
+.etape{text-align:center;padding:0 18px;position:relative}
+.etape .pt{width:68px;height:68px;margin:0 auto 16px;border-radius:50%;background:var(--blanc);border:3px solid var(--moutarde);color:var(--moutarde-f);font-family:'Baloo 2';font-weight:800;font-size:1.5rem;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;box-shadow:0 10px 24px rgba(46,36,21,.1)}
+.etape h4{font-size:1.02rem;margin-bottom:6px}
+.etape p{font-size:.86rem;color:#5C513C}
+@media(max-width:880px){.etapes{grid-template-columns:1fr 1fr;row-gap:34px}.etapes::before{display:none}}
+
+/* ===== TEMOIGNAGES ===== */
+.temo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px}
+.temo{--c:var(--moutarde);background:var(--blanc);border-radius:var(--r);padding:28px;box-shadow:0 12px 30px rgba(46,36,21,.08);border:1px solid #EFE7D6;position:relative}
+.temo .guill{font-family:'Baloo 2';font-size:3.4rem;line-height:.6;color:var(--c);display:block;margin-bottom:14px}
+.temo p{font-size:.95rem;font-style:italic;color:#4A3F2C}
+.temo .qui{margin-top:16px;display:flex;align-items:center;gap:12px}
+.temo .avatar{width:42px;height:42px;border-radius:50%;background:var(--c);color:#fff;font-family:'Baloo 2';font-weight:800;display:flex;align-items:center;justify-content:center}
+.temo .qui b{display:block;font-size:.9rem}
+.temo .qui small{font-size:.76rem;font-weight:800;color:var(--taupe)}
+.tm-sell{--c:var(--sell)} .tm-cook{--c:var(--cook)} .tm-care{--c:var(--care)}
+
+/* ===== FINANCEMENT ===== */
+.financement{background:var(--beige)}
+.fin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px;margin-top:10px}
+.fin{background:var(--blanc);border-radius:20px;padding:22px;border-left:8px solid var(--moutarde);box-shadow:0 8px 22px rgba(46,36,21,.06)}
+.fin b{font-family:'Baloo 2';font-size:1rem}
+.fin p{font-size:.86rem;color:#5C513C;margin-top:4px}
+
+/* ===== Méthode ===== */
+.meth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px}
+.meth{background:var(--blanc);border-radius:var(--r);padding:26px 24px;box-shadow:0 12px 32px rgba(46,36,21,.07);border:1px solid #EFE7D6}
+.meth-ic{width:58px;height:58px;border-radius:17px;background:var(--moutarde-p);color:var(--moutarde-f);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.meth-ic svg{width:32px;height:32px}
+.meth h4{font-size:1.1rem;letter-spacing:.02em}
+.meth p{font-size:.9rem;color:#5C513C;margin-top:7px;line-height:1.65}
+
+/* ===== FAQ ===== */
+.faq{background:var(--beige)}
+.faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--blanc);border-radius:18px;border:1px solid #EFE7D6;box-shadow:0 8px 22px rgba(46,36,21,.06);overflow:hidden}
+.faq-item summary{list-style:none;cursor:pointer;padding:18px 22px;font-family:'Baloo 2';font-weight:700;font-size:1.02rem;color:var(--encre);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"";flex-shrink:0;width:12px;height:12px;border-right:3px solid var(--moutarde-f);border-bottom:3px solid var(--moutarde-f);transform:rotate(45deg);transition:transform .25s;margin-top:-4px}
+.faq-item[open] summary::after{transform:rotate(-135deg);margin-top:2px}
+.faq-c{padding:0 22px 20px;font-size:.92rem;color:#5C513C;line-height:1.7}
+.faq-c p{margin:0}
+
+/* ===== QUIZ ORIENTATION ===== */
+.quiz{background:linear-gradient(180deg,var(--brun),#1d1608);color:var(--creme);position:relative;overflow:hidden}
+.quiz::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(200,155,46,.22),transparent 66%);top:-180px;left:-140px}
+.quiz::after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(200,155,46,.16),transparent 66%);bottom:-200px;right:-120px}
+.quiz .wrap{position:relative;z-index:1}
+.quiz .sec-titre{color:var(--creme)}
+.quiz .sec-sub{color:#D9CFB8}
+.quiz-box{max-width:760px;margin:0 auto;background:rgba(255,253,248,.05);border:1px solid rgba(255,253,248,.14);border-radius:var(--r);padding:38px 34px;backdrop-filter:blur(4px)}
+.quiz-progress{height:7px;border-radius:4px;background:rgba(255,253,248,.14);overflow:hidden;margin-bottom:8px}
+.quiz-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--moutarde),var(--moutarde-f));border-radius:4px;transition:width .4s ease}
+.quiz-count{font-size:.8rem;font-weight:800;color:#C9BE9E;letter-spacing:.05em;margin-bottom:22px}
+.quiz-q{font-family:'Baloo 2';font-weight:700;font-size:clamp(1.25rem,3vw,1.7rem);line-height:1.3;margin-bottom:24px;min-height:2.2em}
+.quiz-opts{display:grid;gap:12px}
+.quiz-opt{text-align:left;background:rgba(255,253,248,.06);border:1.5px solid rgba(255,253,248,.16);color:var(--creme);border-radius:16px;padding:16px 20px;font-family:'Nunito';font-size:1rem;font-weight:700;cursor:pointer;transition:transform .14s,background .2s,border-color .2s;display:flex;align-items:center;gap:14px}
+.quiz-opt:hover{transform:translateY(-2px);background:rgba(200,155,46,.16);border-color:var(--moutarde)}
+.quiz-opt .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--moutarde);flex-shrink:0}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:14px}
+.quiz-back{background:none;border:none;color:#C9BE9E;font-family:'Baloo 2';font-weight:700;font-size:.9rem;cursor:pointer;padding:8px 4px}
+.quiz-back:hover{color:var(--creme)}
+.quiz-back[disabled]{opacity:.35;cursor:default}
+/* résultat */
+.quiz-res{text-align:center;animation:resIn .6s ease}
+@keyframes resIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.quiz-res .res-ic{width:96px;height:96px;border-radius:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.quiz-res .res-ic svg{width:56px;height:56px;color:#fff}
+.quiz-res .res-sur{font-family:'Baloo 2';font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moutarde)}
+.quiz-res .res-metier{font-family:'Baloo 2';font-weight:800;font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.15;margin:6px 0 4px}
+.quiz-res .res-ecole{font-family:'Baloo 2';font-weight:700;font-size:1.1rem;color:#D9CFB8}
+.quiz-res .res-desc{max-width:52ch;margin:18px auto 8px;color:#E5DCC7;line-height:1.7}
+.quiz-res .res-formations{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0 6px}
+.quiz-res .res-formations span{background:rgba(255,253,248,.09);border:1px solid rgba(255,253,248,.18);border-radius:999px;padding:7px 15px;font-size:.82rem;font-weight:800}
+.quiz-res .res-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.quiz-res .btn-restart{background:transparent;color:var(--creme);box-shadow:0 0 0 2px rgba(255,253,248,.4) inset}
+
+/* ===== FICHES MÉTIERS ===== */
+.metiers{background:var(--creme)}
+.metiers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:20px}
+.mcard{--c:var(--moutarde);--cp:var(--moutarde-p);background:var(--blanc);border-radius:var(--r);overflow:hidden;box-shadow:0 12px 32px rgba(46,36,21,.08);border:1px solid #EFE7D6;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;cursor:pointer;text-align:left}
+.mcard:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(46,36,21,.14)}
+.mcard-top{background:var(--cp);padding:20px 22px;display:flex;align-items:center;gap:14px}
+.mcard-ic{width:50px;height:50px;border-radius:15px;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mcard-ic svg{width:28px;height:28px}
+.mcard-top b{font-family:'Baloo 2';font-size:1.08rem;line-height:1.15;color:var(--encre)}
+.mcard-top small{display:block;font-size:.72rem;font-weight:800;color:var(--taupe);letter-spacing:.03em;margin-top:2px}
+.mcard-body{padding:18px 22px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.mcard-stats{display:flex;gap:8px;flex-wrap:wrap}
+.mcard-stats span{background:var(--creme);border-radius:10px;padding:6px 11px;font-size:.72rem;font-weight:800;color:var(--encre)}
+.mcard-stats span i{color:var(--c);font-style:normal}
+.mcard-body p{font-size:.88rem;color:#5C513C;line-height:1.6}
+.mcard-more{margin-top:auto;font-family:'Baloo 2';font-weight:700;font-size:.86rem;color:var(--c);display:flex;align-items:center;gap:6px}
+/* modale métier */
+.mmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.mmodal.on{display:flex}
+.mmodal-bg{position:absolute;inset:0;background:rgba(30,23,10,.6);backdrop-filter:blur(3px)}
+.mmodal-card{position:relative;background:var(--blanc);border-radius:var(--r);max-width:640px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 40px 90px rgba(30,23,10,.4);animation:resIn .4s ease}
+.mmodal-head{padding:26px 28px;color:#fff;position:relative}
+.mmodal-head b{font-family:'Baloo 2';font-size:1.5rem;line-height:1.15;display:block}
+.mmodal-head small{font-weight:800;font-size:.82rem;opacity:.9}
+.mmodal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:1.3rem;cursor:pointer;line-height:1}
+.mmodal-body{padding:24px 28px 28px}
+.mmodal-body h5{font-family:'Baloo 2';font-size:1rem;margin:16px 0 7px;color:var(--encre)}
+.mmodal-body h5:first-child{margin-top:0}
+.mmodal-body p,.mmodal-body li{font-size:.92rem;color:#4C4331;line-height:1.65}
+.mmodal-body ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.mmodal-body li{display:flex;gap:9px}
+.mmodal-body li::before{content:"";width:13px;height:3px;border-radius:2px;background:var(--mc,var(--moutarde));flex-shrink:0;margin-top:9px}
+.mmodal-stats{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 6px}
+.mmodal-stats div{background:var(--creme);border-radius:14px;padding:12px 16px;flex:1;min-width:120px}
+.mmodal-stats b{font-family:'Baloo 2';font-size:1.05rem;color:var(--encre);display:block}
+.mmodal-stats small{font-size:.72rem;font-weight:800;color:var(--taupe)}
+.mmodal-cta{display:inline-flex;margin-top:20px;width:100%;justify-content:center}
+
+/* ===== COMPARATEUR ===== */
+.comparateur{background:var(--beige)}
+.comp-filtres{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.comp-filtre{background:var(--blanc);border:1.5px solid var(--beige-f);color:var(--encre);border-radius:999px;padding:9px 18px;font-family:'Baloo 2';font-weight:700;font-size:.86rem;cursor:pointer;transition:.18s}
+.comp-filtre:hover{border-color:var(--moutarde)}
+.comp-filtre.on{background:var(--encre);color:var(--creme);border-color:var(--encre)}
+.comp-table{background:var(--blanc);border-radius:var(--r);overflow:hidden;box-shadow:0 12px 32px rgba(46,36,21,.08);border:1px solid #EFE7D6}
+.comp-row{display:grid;grid-template-columns:2.4fr 1fr 1fr 1.1fr 1fr;gap:12px;padding:15px 22px;align-items:center;border-bottom:1px solid #F0E8D8}
+.comp-row:last-child{border-bottom:none}
+.comp-head{background:var(--creme);font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.04em;color:var(--taupe);text-transform:uppercase}
+.comp-row .cf-nom{font-family:'Baloo 2';font-weight:700;font-size:.98rem;color:var(--encre);display:flex;align-items:center;gap:10px}
+.comp-row .cf-nom i{width:11px;height:11px;border-radius:4px;flex-shrink:0}
+.comp-row .cf-nom small{display:block;font-family:'Nunito';font-size:.72rem;font-weight:800;color:var(--taupe)}
+.comp-cell{font-size:.85rem;font-weight:800;color:#4C4331}
+.comp-cell.mut{color:var(--taupe);font-weight:700}
+.comp-badge{display:inline-block;font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:999px;background:var(--moutarde-p);color:var(--moutarde-f)}
+.comp-row .btn-mini{background:var(--encre);color:var(--creme);border-radius:999px;padding:8px 16px;font-family:'Baloo 2';font-weight:700;font-size:.78rem;text-decoration:none;text-align:center;transition:.15s}
+.comp-row .btn-mini:hover{background:var(--moutarde-f)}
+.comp-empty{padding:40px;text-align:center;color:var(--taupe);font-weight:700}
+@media(max-width:820px){
+  .comp-head{display:none}
+  .comp-row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
+  .comp-cell::before{content:attr(data-l);display:inline-block;width:110px;color:var(--taupe);font-weight:800;font-size:.72rem;text-transform:uppercase}
+  .comp-row .btn-mini{justify-self:start;margin-top:6px}
+}
+
+/* ===== GUIDE / RESSOURCES ===== */
+.guide{background:var(--creme)}
+.guide-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+@media(max-width:900px){.guide-grid{grid-template-columns:1fr}}
+.guide-fin{display:flex;flex-direction:column;gap:14px}
+.gcard{background:var(--blanc);border-radius:20px;border:1px solid #EFE7D6;box-shadow:0 8px 22px rgba(46,36,21,.06);overflow:hidden}
+.gcard summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;gap:15px}
+.gcard summary::-webkit-details-marker{display:none}
+.gcard .gc-ic{width:46px;height:46px;border-radius:13px;background:var(--moutarde-p);color:var(--moutarde-f);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gcard .gc-ic svg{width:26px;height:26px}
+.gcard .gc-t{flex:1}
+.gcard .gc-t b{font-family:'Baloo 2';font-size:1.06rem;color:var(--encre);display:block}
+.gcard .gc-t small{font-size:.78rem;font-weight:800;color:var(--taupe)}
+.gcard summary::after{content:"";width:11px;height:11px;border-right:3px solid var(--moutarde-f);border-bottom:3px solid var(--moutarde-f);transform:rotate(45deg);transition:.25s;flex-shrink:0}
+.gcard[open] summary::after{transform:rotate(-135deg)}
+.gcard .gc-body{padding:0 22px 20px;font-size:.9rem;color:#4C4331;line-height:1.7}
+.gcard .gc-body p{margin-bottom:8px}
+.gcard .gc-body b.hl{color:var(--moutarde-f)}
+.reconv{background:var(--brun);color:var(--creme);border-radius:var(--r);padding:30px 28px;position:sticky;top:100px}
+.reconv h3{font-family:'Baloo 2';font-size:1.3rem;margin-bottom:6px}
+.reconv .rc-sub{color:#C9BE9E;font-size:.86rem;font-weight:700;margin-bottom:20px}
+.reconv ol{list-style:none;counter-reset:rc;display:flex;flex-direction:column;gap:16px}
+.reconv li{counter-increment:rc;display:flex;gap:14px;align-items:flex-start}
+.reconv li::before{content:counter(rc);flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--moutarde);color:var(--brun);font-family:'Baloo 2';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.reconv li b{font-family:'Baloo 2';font-size:.98rem;display:block;margin-bottom:2px}
+.reconv li p{font-size:.84rem;color:#D9CFB8;line-height:1.55}
+
+/* ===== CTA ===== */
+.grand-cta{background:var(--brun);color:var(--creme);text-align:center;position:relative;overflow:hidden}
+.grand-cta .arc{position:absolute;width:460px;height:230px;background:var(--moutarde);opacity:.16;border-radius:230px 230px 0 0;left:-140px;bottom:0}
+.grand-cta .arc.d{left:auto;right:-160px;bottom:auto;top:0;transform:rotate(180deg);background:var(--terra)}
+.grand-cta h2{font-size:clamp(1.9rem,4vw,2.7rem);position:relative;z-index:1}
+.grand-cta p{max-width:56ch;margin:14px auto 28px;opacity:.85;position:relative;z-index:1}
+.grand-cta .btn{position:relative;z-index:1}
+
+/* ===== FOOTER ===== */
+footer{background:#221A0C;color:#D9CFB8;padding:56px 0 26px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
+footer h4{color:var(--creme);font-size:1rem;margin-bottom:12px}
+footer a{color:#D9CFB8;text-decoration:none;font-size:.88rem}
+footer a:hover{color:var(--moutarde)}
+footer li{list-style:none;margin-bottom:8px}
+footer li i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:9px}
+.f-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.f-brand .lg{width:44px;height:44px;border-radius:13px;background:var(--moutarde);display:flex;align-items:center;justify-content:center}
+.f-brand .lg svg{width:24px;height:24px}
+.legal{grid-column:1/-1;border-top:1px solid #4A3E22;margin-top:30px;padding-top:20px;font-size:.78rem;color:#A6997B;text-align:center}
+@media(max-width:880px){footer .wrap{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.ruban-piste{animation:none}.rv{opacity:1;transform:none;transition:none}}
+
+.modalites-legende{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin:0 0 34px}
+.mod-lg{border-radius:16px;padding:16px 20px;font-size:.94rem;line-height:1.5}
+.mod-lg .mod-pastille{display:inline-block;font-size:.66rem;font-weight:800;padding:4px 10px;border-radius:999px;margin-right:8px;vertical-align:middle;letter-spacing:.02em;text-transform:uppercase}
+.mod-lg.distance{background:linear-gradient(135deg,#e8f8f0,#d3f0e0);color:#155f3d;border:1px solid #9adcb8}
+.mod-lg.distance .mod-pastille{background:#1c7a4f;color:#fff}
+.mod-lg.presentiel{background:linear-gradient(135deg,#fdf1e2,#fbe4c9);color:#8a4d15;border:1px solid #f0c48d}
+.mod-lg.presentiel .mod-pastille{background:#b5651d;color:#fff}
+.mod-lg b{font-weight:800}
+.ecole.bientot{opacity:.92}.ecole.bientot .tag-etat{background:var(--beige);color:var(--taupe)}.ecole.bientot ul li span{display:none}
+.intensif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:26px}
+.intensif-grid .carte{background:var(--blanc);border:1px solid var(--beige-f);border-radius:var(--r);padding:22px}
+.intensif-grid .carte b{display:block;font-family:'Baloo 2';font-size:1.15rem;margin-bottom:6px;color:var(--cook)}
+.intensif-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}.intensif-cta small{color:var(--taupe)}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="lg"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.8 4.6C11.4 2.8 7 5 7 8.4c0 4.6 10 3.2 10 7.8 0 3.5-4.8 5.6-10 3.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="17.8" cy="4.2" r="2.3" fill="#fff"/></svg></span>
+      <span><b>SWIPE LEARN SCHOOL</b><small>Groupe de formation</small></span>
+    </a>
+    <ul>
+      <li><a href="#ecoles">Nos écoles</a></li><li><a href="#intensif">CAP intensif</a></li>
+      <li><a href="#metiers">Les métiers</a></li>
+      <li><a href="#comparateur">Comparateur</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="nav-cta" href="#quiz">Trouver ma voie</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="rv on">
+      <span class="sur"><i></i>Un groupe, sept écoles, une même méthode</span>
+      <h1>Sept écoles.<br>Un seul geste : <span class="m">apprendre.</span></h1>
+      <p>Cuisine, vente, aide à la personne, numérique, bâtiment, transport, gestion : Swipe Learn School réunit sept écoles. La théorie se suit en ligne avec un formateur du métier ; la pratique se fait en entreprise, près de chez vous. Cook, l’école de cuisine, est ouverte ; les six autres ouvrent une à une.</p>
+      <div class="hero-actions">
+        <a class="btn btn-m" href="#quiz">Trouver ma voie en 2 min<svg class="fl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="https://cook.swipeandlearn.school/">Découvrir Cook, l’école de cuisine</a>
+      </div>
+      <div class="confiance">
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6l-8-4zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.4-4.4 1.4 1.4-5.8 5.8z"/></svg>Cours en ligne avec un formateur</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.5 14.5-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z"/></svg>Pratique près de chez vous</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4 0-9 2-9 6v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-1c0-4-5-6-9-6z"/></svg>Inscription toute l’année</span>
+      </div>
+    </div>
+
+    <div class="carrousel rv" aria-label="Nos sept domaines de formation">
+      <div class="scene" id="scene">
+        <span class="halo" id="halo"></span>
+        <div class="slide s-cook on"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/></svg><div><b>Cuisine</b><br><small>Cook · ouverte</small></div></div>
+        <div class="slide s-sell"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/></svg><div><b>Vente</b><br><small>Sell · bientôt</small></div></div>
+        <div class="slide s-care"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/></svg><div><b>Aide à la personne</b><br><small>Care · bientôt</small></div></div>
+        <div class="slide s-code"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/></svg><div><b>Numérique</b><br><small>Code · bientôt</small></div></div>
+        <div class="slide s-build"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/></svg><div><b>Bâtiment</b><br><small>Build · bientôt</small></div></div>
+        <div class="slide s-manage"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/></svg><div><b>Gestion</b><br><small>Manage · bientôt</small></div></div>
+        <div class="slide s-drive"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/></svg><div><b>Transport</b><br><small>Drive · bientôt</small></div></div>
+      </div>
+      <div class="selecteur" id="selecteur">
+        <button class="s-cook on" data-i="0" aria-label="Cuisine"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/></svg><span class="barre"></span></button>
+        <button class="s-sell" data-i="1" aria-label="Vente"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/></svg><span class="barre"></span></button>
+        <button class="s-care" data-i="2" aria-label="Santé"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/></svg><span class="barre"></span></button>
+        <button class="s-code" data-i="3" aria-label="Numérique"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/></svg><span class="barre"></span></button>
+        <button class="s-build" data-i="4" aria-label="Bâtiment"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/></svg><span class="barre"></span></button>
+        <button class="s-manage" data-i="5" aria-label="Gestion"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/></svg><span class="barre"></span></button>
+        <button class="s-drive" data-i="6" aria-label="Transport"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/></svg><span class="barre"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ruban" aria-hidden="true">
+    <div class="ruban-piste">
+      <span><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/></svg></em><i></i></span>
+      <span><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/></svg></em><i></i><em><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/></svg></em><i></i></span>
+    </div>
+  </div>
+</header>
+
+<div class="chiffres">
+  <div class="wrap">
+    <div class="rv"><div class="v">7</div><div class="l">écoles, dont Cook déjà ouverte</div></div>
+    <div class="rv"><div class="v">50</div><div class="l">formations à Cook, dont 16 préparations à un diplôme</div></div>
+    <div class="rv"><div class="v">651</div><div class="l">leçons et 100 examens blancs en ligne à Cook</div></div>
+    <div class="rv"><div class="v">15 j</div><div class="l">au plus pour répondre à votre demande d’inscription</div></div>
+  </div>
+</div>
+<section id="ecoles">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Choisissez votre école<span class="tiret"></span></h2>
+    <p class="sec-sub rv">Chaque école a sa couleur, sa plateforme et ses formateurs du métier ; toutes partagent la même méthode. Cook est ouverte, les six autres arrivent.</p>
+    <div class="modalites-legende rv">
+      <div class="mod-lg distance"><span class="mod-pastille">100% e-learning</span><b>Apprendre à domicile n'a jamais été aussi simple.</b> Cours, exercices et évaluations entièrement en ligne, où vous voulez et quand vous voulez.</div>
+      <div class="mod-lg presentiel"><span class="mod-pastille">En ligne + en entreprise</span><b>La théorie en ligne, la pratique sur le terrain.</b> Les gestes du métier se pratiquent chez un professionnel près de chez vous ; l’examen officiel, quand il y en a un, se passe dans un centre d’examen.</div>
+    </div>
+    <div class="ecoles-grid">
+
+      <div class="ecole e-cook rv">
+        <div class="ecole-head">
+          <span class="ecole-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/></svg></span>
+          <h3>COOK<small>Cuisine, pâtisserie, bar &amp; hôtellerie</small></h3></div>
+      <span class="tag-etat">École ouverte</span>
+      <ul>
+        <li><b>CAP Cuisine intensif</b><span>6 mois · nouveau</span></li>
+        <li><b>CAP Cuisine, candidat libre</b><span>1 290 €</span></li>
+        <li><b>CAP Pâtissier, candidat libre</b><span>1 290 €</span></li>
+        <li><b>Hygiène alimentaire &amp; HACCP</b><span>290 €</span></li>
+        <li><b>+ 46 autres formations</b><span>à découvrir dans l’école</span></li>
+      </ul>
+      <div class="ecole-meta"><span>50 formations</span><span>651 leçons</span><span>100 examens blancs</span></div>
+      <a class="btn" href="https://cook.swipeandlearn.school/">Entrer dans l'école</a>
+      </div>
+
+      <div class="ecole e-sell bientot rv">
+        <div class="ecole-head">
+          <span class="ecole-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/></svg></span>
+          <h3>SELL<small>Vente, e-commerce &amp; social commerce</small></h3></div>
+      <span class="tag-etat">Ouverture prochaine</span>
+      <ul>
+        <li><b>Vente en magasin &amp; relation client</b></li><li><b>E-commerce &amp; Shopify</b></li><li><b>Marketplaces &amp; Amazon</b></li><li><b>Prospection &amp; closing commercial</b></li>
+        <li><b>15 formations prévues</b></li>
+      </ul>
+      <div class="ecole-meta"><span>Programme en préparation</span></div>
+      <a class="btn" href="mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Sell">Être prévenu de l’ouverture</a>
+      </div>
+
+      <div class="ecole e-care bientot rv">
+        <div class="ecole-head">
+          <span class="ecole-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/></svg></span>
+          <h3>CARE<small>Aide à la personne &amp; petite enfance</small></h3></div>
+      <span class="tag-etat">Ouverture prochaine</span>
+      <ul>
+        <li><b>Accompagner la personne au quotidien</b></li><li><b>Soins d’hygiène et gestes professionnels</b></li><li><b>Accompagner le jeune enfant</b></li><li><b>ADVF — Assistant de vie aux familles (titre pro)</b></li>
+        <li><b>18 formations prévues</b></li>
+      </ul>
+      <div class="ecole-meta"><span>Programme en préparation</span></div>
+      <a class="btn" href="mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Care">Être prévenu de l’ouverture</a>
+      </div>
+
+      <div class="ecole e-code bientot rv">
+        <div class="ecole-head">
+          <span class="ecole-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/></svg></span>
+          <h3>CODE<small>Numérique &amp; développement web</small></h3></div>
+      <span class="tag-etat">Ouverture prochaine</span>
+      <ul>
+        <li><b>Créer un site sans coder</b></li><li><b>Programmation : JavaScript &amp; logique</b></li><li><b>Tout savoir sur l’IA</b></li><li><b>Cybersécurité : les fondamentaux</b></li>
+        <li><b>14 formations prévues</b></li>
+      </ul>
+      <div class="ecole-meta"><span>Programme en préparation</span></div>
+      <a class="btn" href="mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Code">Être prévenu de l’ouverture</a>
+      </div>
+
+      <div class="ecole e-build bientot rv">
+        <div class="ecole-head">
+          <span class="ecole-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/></svg></span>
+          <h3>BUILD<small>Bâtiment &amp; rénovation énergétique</small></h3></div>
+      <span class="tag-etat">Ouverture prochaine</span>
+      <ul>
+        <li><b>Lire un plan &amp; préparer le chantier</b></li><li><b>Gestes techniques : électricité &amp; plomberie</b></li><li><b>Rénovation énergétique</b></li><li><b>Diagnostic de performance énergétique</b></li>
+        <li><b>19 formations prévues</b></li>
+      </ul>
+      <div class="ecole-meta"><span>Programme en préparation</span></div>
+      <a class="btn" href="mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Build">Être prévenu de l’ouverture</a>
+      </div>
+
+      <div class="ecole e-drive bientot rv">
+        <div class="ecole-head">
+          <span class="ecole-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/></svg></span>
+          <h3>DRIVE<small>Transport &amp; logistique</small></h3></div>
+      <span class="tag-etat">Ouverture prochaine</span>
+      <ul>
+        <li><b>Code &amp; réglementation transport</b></li><li><b>Logistique d’entrepôt &amp; CACES</b></li><li><b>Capacité de transport léger</b></li><li><b>Chauffeur VTC (examen théorique)</b></li>
+        <li><b>17 formations prévues</b></li>
+      </ul>
+      <div class="ecole-meta"><span>Programme en préparation</span></div>
+      <a class="btn" href="mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Drive">Être prévenu de l’ouverture</a>
+      </div>
+
+      <div class="ecole e-manage bientot rv">
+        <div class="ecole-head">
+          <span class="ecole-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/></svg></span>
+          <h3>MANAGE<small>Gestion, comptabilité &amp; secrétariat</small></h3></div>
+      <span class="tag-etat">Ouverture prochaine</span>
+      <ul>
+        <li><b>Secrétariat &amp; communication professionnelle</b></li><li><b>Comptabilité : les fondamentaux</b></li><li><b>Paie &amp; administration du personnel</b></li><li><b>Bureautique &amp; IA de bureau</b></li>
+        <li><b>18 formations prévues</b></li>
+      </ul>
+      <div class="ecole-meta"><span>Programme en préparation</span></div>
+      <a class="btn" href="mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Manage">Être prévenu de l’ouverture</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="quiz" class="quiz">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Quel métier est fait pour vous ?<span class="tiret"></span></h2>
+    <p class="sec-sub rv">Huit questions, deux minutes, et une piste concrète. Répondez spontanément : il n'y a pas de mauvaise réponse, seulement la vôtre.</p>
+    <div class="quiz-box rv" id="quizBox">
+      <div class="quiz-progress"><i id="quizBar"></i></div>
+      <div class="quiz-count" id="quizCount">Question 1 / 8</div>
+      <div class="quiz-q" id="quizQ">…</div>
+      <div class="quiz-opts" id="quizOpts"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" id="quizBack" disabled>← Précédent</button>
+        <span style="font-size:.78rem;color:#C9BE9E;font-weight:800">Sans inscription</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mmodal" id="mmodal">
+  <div class="mmodal-bg" data-close></div>
+  <div class="mmodal-card" id="mmodalCard"></div>
+</div>
+
+<section id="parcours" class="parcours">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Votre parcours en 4 étapes<span class="tiret"></span></h2>
+    <p class="sec-sub rv">De la demande d’inscription à l’examen, vous savez toujours où vous en êtes : c’est la même méthode dans toutes nos écoles.</p>
+    <div class="etapes">
+      <div class="etape rv"><div class="pt">1</div><h4>Demande</h4><p>Une demande en ligne, puis un entretien pour choisir la bonne formation. Réponse du centre sous 15 jours, aucun diplôme exigé pour suivre la plupart des formations.</p></div>
+      <div class="etape rv"><div class="pt">2</div><h4>Financement</h4><p>Aujourd’hui : financement personnel ou par votre employeur. Le CPF, les OPCO et France Travail viendront après la certification Qualiopi de l’école, en cours de préparation.</p></div>
+      <div class="etape rv"><div class="pt">3</div><h4>Formation</h4><p>Les cours en ligne sur la plateforme de votre école, avec un formateur joignable ; la pratique en entreprise près de chez vous, que nous cherchons avec vous.</p></div>
+      <div class="etape rv"><div class="pt">4</div><h4>Examen</h4><p>Pour un diplôme, vous vous présentez à l’examen officiel en candidat libre : nous vous y préparons avec des examens blancs. Les formations courtes délivrent une attestation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="intensif">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Nouveau à Cook : le CAP Cuisine intensif<span class="tiret"></span></h2>
+    <p class="sec-sub rv">Six mois pour se préparer au CAP Cuisine sans quitter sa région : toute la théorie en ligne, la pratique dans un restaurant près de chez vous, et un objectif clair, l’examen.</p>
+    <div class="intensif-grid">
+      <div class="carte rv"><b>En ligne, à un rythme soutenu</b>Les deux pôles du CAP Cuisine, les fiches techniques, les quiz et les examens blancs, avec un formateur du métier joignable par la messagerie.</div>
+      <div class="carte rv"><b>En restaurant, près de chez vous</b>Depuis la session 2026, le candidat libre doit justifier d’au moins 4 semaines en restaurant pour le pôle 1 et 10 semaines pour le pôle 2. Nous cherchons avec vous un restaurateur partenaire près de chez vous.</div>
+      <div class="carte rv"><b>Jusqu’à l’examen</b>L’inscription à l’examen se fait une fois par an, à l’automne, auprès de votre académie : vous la faites vous-même, nous vous guidons. Le diplôme est délivré par l’Éducation nationale.</div>
+    </div>
+    <div class="intensif-cta rv"><a class="btn btn-m" href="https://cook.swipeandlearn.school/#inscription">Demander un rendez-vous</a><a class="btn btn-ghost" href="https://cook.swipeandlearn.school/formations/cap-cuisine.html">Voir le programme du CAP Cuisine</a><small>Tarif et calendrier de la prochaine session : lors de l’entretien.</small></div>
+  </div>
+</section>
+
+<section id="methode" class="methode">
+  <div class="wrap">
+    <h2 class="sec-titre rv">La méthode Swipe Learn School<span class="tiret"></span></h2>
+    <p class="sec-sub rv">La même plateforme dans chaque école, pensée pour apprendre sur téléphone et aller jusqu’à l’examen.</p>
+    <div class="meth-grid">
+      <div class="meth rv">
+        <span class="meth-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="5" width="22" height="38" rx="4"/><path d="M21 39h6"/></svg></span>
+        <h4>Cours mobile d'abord</h4>
+        <p>Des leçons courtes qui tiennent en quelques minutes, avec l’essentiel à retenir, le piège à éviter et une mise en pratique, à suivre sur téléphone, tablette ou ordinateur.</p>
+      </div>
+      <div class="meth rv">
+        <span class="meth-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11h30v26a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2z"/><path d="M9 18h30M17 26h6M17 32h14"/></svg></span>
+        <h4>Quiz &amp; examens blancs</h4>
+        <p>Des quiz à chaque étape et des examens blancs pour s’entraîner dans les conditions de l’examen.</p>
+      </div>
+      <div class="meth rv">
+        <span class="meth-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="34" height="30" rx="4"/><path d="M7 17h34M14 4v8M34 4v8M15 26l5 5 9-10"/></svg></span>
+        <h4>Votre itinéraire</h4>
+        <p>Vous avancez station par station et vous voyez toujours votre prochain arrêt ; des révisions espacées reviennent sur ce qui doit être retenu.</p>
+      </div>
+      <div class="meth rv">
+        <span class="meth-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24l9 9 19-19"/><path d="M6 32v8a2 2 0 0 0 2 2h32a2 2 0 0 0 2-2v-8"/></svg></span>
+        <h4>Émargement électronique</h4>
+        <p>Vos présences se signent en ligne, avec une preuve horodatée : sans papier, et prêtes pour les financeurs le jour où l’école sera certifiée Qualiopi.</p>
+      </div>
+      <div class="meth rv">
+        <span class="meth-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l7 4"/></svg></span>
+        <h4>Un formateur joignable</h4>
+        <p>Une messagerie avec le centre pour vos questions et vos travaux ; le formateur suit votre progression.</p>
+      </div>
+      <div class="meth rv">
+        <span class="meth-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l5.4 11 12.1 1.7-8.8 8.5 2.1 12L24 37.5 13.2 39.2l2.1-12-8.8-8.5L18.6 17z"/></svg></span>
+        <h4>Une équipe qui vous suit</h4>
+        <p>L’équipe repère quand vous décrochez, vous relance et vous aide à trouver une entreprise pour la pratique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metiers" class="metiers">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Explorez les métiers<span class="tiret"></span></h2>
+    <p class="sec-sub rv">Les métiers de Cook : missions, débouchés et formation associée. Les métiers des autres écoles arriveront avec leur ouverture.</p>
+    <div class="metiers-grid" id="metiersGrid"></div>
+  </div>
+</section>
+
+<section id="comparateur" class="comparateur">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Comparez les formations<span class="tiret"></span></h2>
+    <p class="sec-sub rv">Les 50 formations de Cook : niveau, durée indicative et prix par stagiaire. Filtrez pour trouver celle qui vous correspond.</p>
+    <div class="comp-filtres rv" id="compFiltres"></div>
+    <div class="comp-table rv" id="compTable"></div>
+  </div>
+</section>
+
+<section id="guide" class="guide">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Financer et réussir sa reconversion<span class="tiret"></span></h2>
+    <p class="sec-sub rv">Ce qui est possible aujourd’hui, ce qui viendra après Qualiopi, et les étapes d’un changement de métier.</p>
+    <div class="guide-grid">
+      <div class="guide-fin">
+        <details class="gcard rv" open>
+          <summary><span class="gc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span><span class="gc-t"><b>Aujourd’hui</b><small>Financement personnel ou employeur</small></span></summary>
+          <div class="gc-body"><p>Vous pouvez financer vous-même votre formation, ou la faire payer par votre employeur sur son propre budget de formation. Le prix est affiché sur chaque fiche de formation.</p><p><b class="hl">Entreprises :</b> devis sur demande pour former vos équipes.</p></div>
+        </details>
+        <details class="gcard rv">
+          <summary><span class="gc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="gc-t"><b>Après Qualiopi</b><small>CPF, OPCO, France Travail</small></span></summary>
+          <div class="gc-body"><p>Les financements publics (CPF, OPCO, France Travail) exigent que l’organisme soit certifié Qualiopi. L’école prépare cette certification : tant qu’elle n’est pas obtenue, nous ne vous les proposons pas.</p><p><b class="hl">Bon à savoir :</b> le CPF finance les formations qui mènent à une certification enregistrée, comme un CAP ou un titre professionnel.</p></div>
+        </details>
+      </div>
+      <aside class="reconv rv">
+        <h3>Réussir sa reconversion</h3>
+        <p class="rc-sub">Les 5 étapes qui font la différence.</p>
+        <ol>
+          <li><div><b>Clarifiez votre projet</b><p>Le test d’orientation et un entretien avec l’école vous aident à cibler un métier réaliste et motivant pour vous.</p></div></li>
+          <li><div><b>Vérifiez le marché</b><p>Privilégiez un métier qui recrute près de chez vous : renseignez-vous auprès des employeurs et des offres d’emploi de votre secteur.</p></div></li>
+          <li><div><b>Prévoyez le financement</b><p>Aujourd’hui, personnel ou par votre employeur ; les financements publics viendront après la certification Qualiopi de l’école.</p></div></li>
+          <li><div><b>Formez-vous à votre rythme</b><p>Les leçons en ligne quand vous le pouvez, la pratique en entreprise près de chez vous : compatible avec une vie active.</p></div></li>
+          <li><div><b>Visez l’examen</b><p>Pour un diplôme, l’examen officiel en candidat libre, préparé avec nos examens blancs ; pour une formation courte, une attestation.</p></div></li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <h2 class="sec-titre rv">Questions fréquentes<span class="tiret"></span></h2>
+    <p class="sec-sub rv">Les réponses aux questions que se posent la plupart des futurs apprenants.</p>
+    <div class="faq-list">
+      <details class="faq-item rv"><summary>Faut-il un diplôme pour s'inscrire ?</summary><div class="faq-c"><p>Non pour suivre la plupart des formations : il faut lire et écrire le français et disposer d’un ordinateur, d’une tablette ou d’un téléphone connecté. Les conditions d’accès aux examens officiels, quand il y en a, vous sont précisées à l’entretien.</p></div></details>
+      <details class="faq-item rv"><summary>Les formations sont-elles finançables par le CPF ?</summary><div class="faq-c"><p>Pas encore : le CPF, les OPCO et France Travail exigent la certification Qualiopi, que l’école prépare. Aujourd’hui, le financement est personnel ou assuré par votre employeur.</p></div></details>
+      <details class="faq-item rv"><summary>Comment se déroule concrètement la formation ?</summary><div class="faq-c"><p>Vous suivez les leçons, les quiz et les examens blancs sur la plateforme de votre école, avec un formateur joignable par la messagerie. Quand la formation comporte de la pratique, elle se fait en entreprise, près de chez vous.</p></div></details>
+      <details class="faq-item rv"><summary>Où se fait la pratique ?</summary><div class="faq-c"><p>Près de chez vous, chez un professionnel partenaire que nous cherchons avec vous : un restaurant pour Cook, par exemple. Le siège de l’école est à Saint-Étienne.</p></div></details>
+      <details class="faq-item rv"><summary>Puis-je me former tout en travaillant ?</summary><div class="faq-c"><p>Oui. Les leçons sont courtes et se suivent quand vous le pouvez, sur téléphone. Pour aller plus vite vers le CAP Cuisine, il existe aussi le CAP Cuisine intensif, en six mois.</p></div></details>
+      <details class="faq-item rv"><summary>Les diplômes sont-ils délivrés par l’école ?</summary><div class="faq-c"><p>Non. Les diplômes préparés (CAP, BP, certificats de spécialisation, titres professionnels) sont délivrés par l’État ou leur certificateur après l’examen ; l’école vous y prépare. Les formations courtes délivrent une attestation de fin de formation et un certificat de réalisation.</p></div></details>
+      <details class="faq-item rv"><summary>Les formations sont-elles accessibles en situation de handicap ?</summary><div class="faq-c"><p>Contactez-nous dès votre demande : nous étudions avec vous l’adaptation du parcours (rythme, supports, conditions de pratique).</p></div></details>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="grand-cta">
+  <div class="arc"></div><div class="arc d"></div>
+  <div class="wrap">
+    <h2 class="rv on">Vous hésitez entre plusieurs écoles ?</h2>
+    <p>Parlons de votre projet : un entretien pour choisir la formation adaptée à votre métier visé, à votre rythme et à votre budget.</p>
+    <a class="btn btn-m" href="https://cook.swipeandlearn.school/#inscription">Demander un rendez-vous</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <div class="f-brand">
+        <span class="lg"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.8 4.6C11.4 2.8 7 5 7 8.4c0 4.6 10 3.2 10 7.8 0 3.5-4.8 5.6-10 3.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="17.8" cy="4.2" r="2.3" fill="#fff"/></svg></span>
+        <b class="baloo" style="color:var(--creme);letter-spacing:.05em">SWIPE LEARN SCHOOL</b>
+      </div>
+      <p style="font-size:.88rem;max-width:36ch">Organisme de formation. Sept écoles, une méthode : la théorie en ligne, la pratique sur le terrain.</p>
+      <p style="margin-top:12px;font-size:.88rem">40 rue de la Badouillère — 42000 Saint-Étienne<br><a href="mailto:contact@swipeandlearn.school" style="color:inherit">contact@swipeandlearn.school</a></p>
+    </div>
+    <div>
+      <h4>Nos écoles</h4>
+      <ul>
+        <li><i style="background:var(--cook)"></i><a href="https://cook.swipeandlearn.school/">Cook — cuisine, pâtisserie, bar et hôtellerie</a></li>
+        <li><i style="background:var(--sell)"></i><span>Sell — Vente &amp; e-commerce · bientôt</span></li>
+        <li><i style="background:var(--care)"></i><span>Care — Aide à la personne · bientôt</span></li>
+        <li><i style="background:var(--code)"></i><span>Code — Numérique · bientôt</span></li>
+        <li><i style="background:var(--build)"></i><span>Build — Bâtiment · bientôt</span></li>
+        <li><i style="background:var(--drive)"></i><span>Drive — Transport · bientôt</span></li>
+        <li><i style="background:var(--manage)"></i><span>Manage — Gestion &amp; secrétariat · bientôt</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Informations</h4>
+      <ul>
+        <li><a href="#quiz">Test d'orientation</a></li>
+        <li><a href="#metiers">Fiches métiers</a></li>
+        <li><a href="#comparateur">Comparateur de formations</a></li>
+        <li><a href="#guide">Financement</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+        <li><a href="#faq">Accessibilité &amp; handicap</a></li>
+      </ul>
+    </div>
+    <div class="legal">SWIPE LEARN SCHOOL, SAS · SIRET 131 294 969 00012 · 40 rue de la Badouillère, 42000 Saint-Étienne · Directeur de la publication : Idriss ROUGAI · Déclaration d’activité d’organisme de formation en cours d’enregistrement · Démarche de certification Qualiopi en cours · Site hébergé par Netlify.</div>
+  </div>
+</footer>
+
+<script>
+// nav ombrée au scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+// révélation au scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+
+// carrousel métiers
+const slides=[...document.querySelectorAll('.slide')];
+const boutons=[...document.querySelectorAll('.selecteur button')];
+const halo=document.getElementById('halo');
+const teintes=['var(--cook-p)','var(--sell-p)','var(--care-p)','var(--code-p)','var(--build-p)','var(--manage-p)','var(--drive-p)'];
+let cIdx=0,cTimer;
+function allerA(i){
+  cIdx=i;
+  slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+  boutons.forEach((b,k)=>b.classList.toggle('on',k===i));
+  halo.style.background=teintes[i];
+}
+function autoC(){cTimer=setInterval(()=>allerA((cIdx+1)%slides.length),2600)}
+boutons.forEach(b=>b.addEventListener('click',()=>{clearInterval(cTimer);allerA(+b.dataset.i);autoC()}));
+const scene=document.getElementById('scene');
+scene.addEventListener('mouseenter',()=>clearInterval(cTimer));
+scene.addEventListener('mouseleave',autoC);
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){/* pas de défilement auto */}else{autoC()}
+
+// menu mobile
+const burger=document.getElementById('burger');
+const menu=document.querySelector('nav ul');
+burger.addEventListener('click',()=>{
+  const ouvert=menu.classList.toggle('open');
+  burger.classList.toggle('on',ouvert);
+  burger.setAttribute('aria-expanded',ouvert);
+});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.classList.remove('on')}));
+
+/* ================= DONNÉES ÉCOLES / MÉTIERS ================= */
+const ICONS={
+  cook:'<path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/>',
+  sell:'<path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/>',
+  care:'<path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/>',
+  code:'<rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/>',
+  build:'<path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/>',
+  drive:'<path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/>',
+  manage:'<rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/>'
+};
+function svg(k,w){return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">'+ICONS[k]+'</svg>';}
+
+const ECOLES={
+  cook:{nom:'Cook',dom:'Cuisine, pâtisserie, bar & hôtellerie',url:'https://cook.swipeandlearn.school/',ouvert:true},
+  sell:{nom:'Sell',dom:'Vente & e-commerce',url:'mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Sell',ouvert:false},
+  care:{nom:'Care',dom:'Aide à la personne & petite enfance',url:'mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Care',ouvert:false},
+  code:{nom:'Code',dom:'Numérique & développement web',url:'mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Code',ouvert:false},
+  build:{nom:'Build',dom:'Bâtiment & rénovation énergétique',url:'mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Build',ouvert:false},
+  drive:{nom:'Drive',dom:'Transport & logistique',url:'mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Drive',ouvert:false},
+  manage:{nom:'Manage',dom:'Gestion, comptabilité & secrétariat',url:'mailto:contact@swipeandlearn.school?subject=Ouverture%20de%20Manage',ouvert:false}
+};
+
+/* métier phare par école pour le résultat du quiz */
+const METIER_PHARE={
+  cook:'Cuisinier',sell:'Conseiller de vente',care:'Assistant de vie aux familles',
+  code:'Développeur web',build:'Électricien',drive:'Conducteur routier',manage:'Secrétaire assistant'
+};
+
+/* fiches métiers détaillées */
+const METIERS=[
+  {ec:'cook',nom:"Cuisinier",for:"CAP Cuisine",url:"https://cook.swipeandlearn.school/metiers/cuisinier.html",pitch:"Composer, cuisiner et dresser des plats en respectant les règles d’hygiène, du bistrot au restaurant gastronomique.",miss:["Préparer les entrées, plats et desserts", "Gérer les cuissons et le dressage", "Appliquer les règles d’hygiène (HACCP)", "Gérer les stocks et l’économat"],deb:"Restaurants, collectivités, hôtels, traiteurs, en France comme à l’étranger."},
+  {ec:'cook',nom:"Pâtissier",for:"CAP Pâtissier",url:"https://cook.swipeandlearn.school/metiers/patissier.html",pitch:"Réaliser entremets, viennoiseries et desserts avec la précision d’un métier où tout se pèse.",miss:["Réaliser crèmes, pâtes et montages", "Travailler le chocolat et le sucre", "Assurer la régularité et l’hygiène", "Créer et dresser des desserts"],deb:"Pâtisseries, boulangeries, restaurants, hôtels."},
+  {ec:'cook',nom:"Boulanger",for:"CAP Boulanger",url:"https://cook.swipeandlearn.school/metiers/boulanger.html",pitch:"Maîtriser la farine, la fermentation et la cuisson pour les pains et les viennoiseries.",miss:["Pétrir, façonner et cuire", "Gérer les fermentations", "Réaliser les viennoiseries", "Organiser sa production"],deb:"Boulangeries artisanales, grandes surfaces, restauration."},
+  {ec:'cook',nom:"Traiteur",for:"Métier de traiteur",url:"https://cook.swipeandlearn.school/metiers/traiteur.html",pitch:"Préparer et livrer des repas pour les événements : cocktails, buffets, plateaux.",miss:["Concevoir des menus et des devis", "Produire en quantité et en sécurité", "Organiser la livraison et le service", "Respecter la chaîne du froid"],deb:"Traiteurs, réceptions, création de sa propre activité."},
+  {ec:'cook',nom:"Barman et serveur",for:"CS Métiers du bar",url:"https://cook.swipeandlearn.school/metiers/bar-salle.html",pitch:"Accueillir, conseiller, servir et créer des cocktails : les métiers qui font l’expérience du client.",miss:["Accueillir et conseiller", "Réaliser les cocktails et les boissons", "Servir en salle", "Encaisser et respecter les obligations"],deb:"Bars, restaurants, hôtels, événementiel."},
+  {ec:'cook',nom:"Réceptionniste",for:"Titre pro Réceptionniste",url:"https://cook.swipeandlearn.school/metiers/hotellerie.html",pitch:"Accueillir les clients d’un hôtel, gérer les réservations et le séjour.",miss:["Accueillir et informer les clients", "Gérer les réservations", "Assurer la facturation", "Traiter les demandes et réclamations"],deb:"Hôtels, résidences de tourisme, hôtellerie de plein air."}
+];
+
+/* ================= FICHES MÉTIERS ================= */
+const grid=document.getElementById('metiersGrid');
+if(grid){
+  grid.innerHTML=METIERS.map((m,i)=>`
+    <button class="mcard" style="--c:var(--${m.ec});--cp:var(--${m.ec}-p)" data-i="${i}">
+      <div class="mcard-top"><span class="mcard-ic">${svg(m.ec)}</span><div><b>${m.nom}</b><small>${ECOLES[m.ec].nom}</small></div></div>
+      <div class="mcard-body">
+        <div class="mcard-stats"><span><i>●</i> ${m.for}</span></div>
+        <p>${m.pitch}</p>
+        <span class="mcard-more">Voir la fiche métier <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </button>`).join('');
+  grid.querySelectorAll('.mcard').forEach(b=>b.addEventListener('click',()=>ouvrirMetier(+b.dataset.i)));
+}
+const mmodal=document.getElementById('mmodal');
+const mmodalCard=document.getElementById('mmodalCard');
+function ouvrirMetier(i){
+  const m=METIERS[i],e=ECOLES[m.ec];
+  mmodalCard.style.setProperty('--mc','var(--'+m.ec+')');
+  mmodalCard.innerHTML=`
+    <div class="mmodal-head" style="background:var(--${m.ec})">
+      <button class="mmodal-close" data-close aria-label="Fermer">×</button>
+      <b>${m.nom}</b><small>${e.nom} · ${e.dom}</small>
+    </div>
+    <div class="mmodal-body">
+      <div class="mmodal-stats"><div><b>${m.for}</b><small>Formation associée</small></div></div>
+      <h5>Le métier</h5><p>${m.pitch}</p>
+      <h5>Missions principales</h5><ul>${m.miss.map(x=>'<li>'+x+'</li>').join('')}</ul>
+      <h5>Débouchés</h5><p>${m.deb}</p>
+      <a class="btn btn-m mmodal-cta" href="${m.url}">Découvrir le métier et ses formations <svg class="fl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      
+    </div>`;
+  mmodal.classList.add('on');document.body.style.overflow='hidden';
+}
+function fermerMetier(){mmodal.classList.remove('on');document.body.style.overflow='';}
+mmodal&&mmodal.addEventListener('click',e=>{if(e.target.hasAttribute('data-close'))fermerMetier();});
+addEventListener('keydown',e=>{if(e.key==='Escape')fermerMetier();});
+
+/* ================= COMPARATEUR ================= */
+const FORMATIONS=[{"ec": "cook", "nom": "CAP Boulanger — préparation", "niv": "CAP", "duree": "environ 160 h", "prix": "1 090 €", "url": "https://cook.swipeandlearn.school/formations/cap-boulanger.html"}, {"ec": "cook", "nom": "CAP Commercialisation et services en HCR — préparation candidat libre", "niv": "CAP", "duree": "environ 200 h", "prix": "1 190 €", "url": "https://cook.swipeandlearn.school/formations/cap-cshcr.html"}, {"ec": "cook", "nom": "CAP Cuisine — préparation candidat libre", "niv": "CAP", "duree": "environ 200 h", "prix": "1 290 €", "url": "https://cook.swipeandlearn.school/formations/cap-cuisine.html"}, {"ec": "cook", "nom": "CAP Pâtissier — préparation candidat libre", "niv": "CAP", "duree": "environ 200 h", "prix": "1 290 €", "url": "https://cook.swipeandlearn.school/formations/cap-patissier.html"}, {"ec": "cook", "nom": "CAP Production et service en restauration — préparation", "niv": "CAP", "duree": "environ 160 h", "prix": "990 €", "url": "https://cook.swipeandlearn.school/formations/cap-psr.html"}, {"ec": "cook", "nom": "BP Arts de la cuisine — préparation", "niv": "BP", "duree": "environ 220 h", "prix": "1 490 €", "url": "https://cook.swipeandlearn.school/formations/bp-cuisine.html"}, {"ec": "cook", "nom": "BP Arts du service et commercialisation — préparation", "niv": "BP", "duree": "environ 200 h", "prix": "1 390 €", "url": "https://cook.swipeandlearn.school/formations/bp-service.html"}, {"ec": "cook", "nom": "CS Accueil-réception — préparation", "niv": "CS", "duree": "environ 150 h", "prix": "990 €", "url": "https://cook.swipeandlearn.school/formations/cs-accueil.html"}, {"ec": "cook", "nom": "CS Métiers du bar — préparation", "niv": "CS", "duree": "environ 150 h", "prix": "990 €", "url": "https://cook.swipeandlearn.school/formations/cs-bar.html"}, {"ec": "cook", "nom": "CS Organisateur de réceptions — préparation", "niv": "CS", "duree": "environ 150 h", "prix": "990 €", "url": "https://cook.swipeandlearn.school/formations/cs-receptions.html"}, {"ec": "cook", "nom": "CS Sommellerie — préparation", "niv": "CS", "duree": "environ 150 h", "prix": "1 090 €", "url": "https://cook.swipeandlearn.school/formations/cs-sommellerie.html"}, {"ec": "cook", "nom": "Métier de traiteur : fabrication et prestations", "niv": "CS", "duree": "environ 400 h", "prix": "1 690 €", "url": "https://cook.swipeandlearn.school/formations/traiteur-mention.html"}, {"ec": "cook", "nom": "Pâtisserie de restaurant — les bases du dessert", "niv": "CS", "duree": "environ 400 h", "prix": "1 690 €", "url": "https://cook.swipeandlearn.school/formations/patisseries.html"}, {"ec": "cook", "nom": "TP Employé d’étage hôtellerie et plein air — préparation", "niv": "Titre pro", "duree": "environ 90 h", "prix": "690 €", "url": "https://cook.swipeandlearn.school/formations/tp-etage.html"}, {"ec": "cook", "nom": "TP Gouvernant en hôtellerie — préparation", "niv": "Titre pro", "duree": "environ 140 h", "prix": "990 €", "url": "https://cook.swipeandlearn.school/formations/tp-gouvernant.html"}, {"ec": "cook", "nom": "TP Réceptionniste en hôtellerie et plein air — préparation", "niv": "Titre pro", "duree": "environ 160 h", "prix": "1 090 €", "url": "https://cook.swipeandlearn.school/formations/tp-receptionniste.html"}, {"ec": "cook", "nom": "Boulangerie : les fondamentaux", "niv": "Module", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/boulangerie.html"}, {"ec": "cook", "nom": "Fonds, liaisons, potages et sauces (CAP Cuisine, pôle 2)", "niv": "Module", "duree": "environ 110 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/potages.html"}, {"ec": "cook", "nom": "Légumes, fruits, taillages et cuissons (CAP Cuisine, pôle 2)", "niv": "Module", "duree": "environ 110 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/legumes.html"}, {"ec": "cook", "nom": "Organisation de la production de cuisine (CAP Cuisine, pôle 1)", "niv": "Module", "duree": "environ 110 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/organisation.html"}, {"ec": "cook", "nom": "Pâtes de base, céréales, crèmes et desserts de restaurant (CAP Cuisine, pôle 2)", "niv": "Module", "duree": "environ 110 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/pates.html"}, {"ec": "cook", "nom": "Pâtisserie de boutique & entremets", "niv": "Module", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/patisserie-boutique.html"}, {"ec": "cook", "nom": "Poissons, coquillages et crustacés (CAP Cuisine, pôle 2)", "niv": "Module", "duree": "environ 110 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/poissons.html"}, {"ec": "cook", "nom": "Viandes, volailles et abats (CAP Cuisine, pôle 2)", "niv": "Module", "duree": "environ 110 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/viandes.html"}, {"ec": "cook", "nom": "Accueil et service en salle : les fondamentaux", "niv": "Courte", "duree": "environ 21 h", "prix": "350 €", "url": "https://cook.swipeandlearn.school/formations/accueil-service.html"}, {"ec": "cook", "nom": "Allergènes : informer et protéger le client", "niv": "Courte", "duree": "environ 7 h", "prix": "190 €", "url": "https://cook.swipeandlearn.school/formations/allergenes.html"}, {"ec": "cook", "nom": "Bar et cocktails : techniques et responsabilité", "niv": "Courte", "duree": "environ 21 h", "prix": "390 €", "url": "https://cook.swipeandlearn.school/formations/bar-cocktails.html"}, {"ec": "cook", "nom": "Barista & café de spécialité", "niv": "Courte", "duree": "environ 21 h", "prix": "450 €", "url": "https://cook.swipeandlearn.school/formations/barista.html"}, {"ec": "cook", "nom": "Chocolaterie : tempérage, bonbons et moulages", "niv": "Courte", "duree": "environ 21 h", "prix": "450 €", "url": "https://cook.swipeandlearn.school/formations/chocolaterie.html"}, {"ec": "cook", "nom": "Créer & gérer son restaurant", "niv": "Courte", "duree": "environ 35 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/restaurant.html"}, {"ec": "cook", "nom": "Crêpier : galettes de sarrasin et crêpes de froment", "niv": "Courte", "duree": "environ 21 h", "prix": "390 €", "url": "https://cook.swipeandlearn.school/formations/creperie.html"}, {"ec": "cook", "nom": "Cuisine anti-gaspi et restauration durable", "niv": "Courte", "duree": "environ 14 h", "prix": "250 €", "url": "https://cook.swipeandlearn.school/formations/antigaspi.html"}, {"ec": "cook", "nom": "Cuisine bien-être, santé & diététique", "niv": "Courte", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/bienetre.html"}, {"ec": "cook", "nom": "Cuisine du monde", "niv": "Courte", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/cuisine-monde.html"}, {"ec": "cook", "nom": "Cuisine végétale & végétarienne", "niv": "Courte", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/vegetale.html"}, {"ec": "cook", "nom": "Cuisiner en restauration collective", "niv": "Courte", "duree": "environ 21 h", "prix": "350 €", "url": "https://cook.swipeandlearn.school/formations/cuisine-collective.html"}, {"ec": "cook", "nom": "Cuisson basse température et sous vide en sécurité", "niv": "Courte", "duree": "environ 14 h", "prix": "350 €", "url": "https://cook.swipeandlearn.school/formations/basse-temperature.html"}, {"ec": "cook", "nom": "Écrire et faire vivre son plan de maîtrise sanitaire", "niv": "Courte", "duree": "environ 14 h", "prix": "390 €", "url": "https://cook.swipeandlearn.school/formations/plan-maitrise-sanitaire.html"}, {"ec": "cook", "nom": "Hygiène alimentaire & méthode HACCP", "niv": "Courte", "duree": "environ 14 h", "prix": "290 €", "url": "https://cook.swipeandlearn.school/formations/haccp-hygiene.html"}, {"ec": "cook", "nom": "Maîtriser ses coûts et sa marge en restauration", "niv": "Courte", "duree": "environ 21 h", "prix": "450 €", "url": "https://cook.swipeandlearn.school/formations/gestion-couts.html"}, {"ec": "cook", "nom": "Manager une équipe en cuisine et en salle", "niv": "Courte", "duree": "environ 21 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/management.html"}, {"ec": "cook", "nom": "Numérique et intelligence artificielle pour restaurateurs", "niv": "Courte", "duree": "environ 14 h", "prix": "290 €", "url": "https://cook.swipeandlearn.school/formations/numerique-resto.html"}, {"ec": "cook", "nom": "Pâtisserie maison", "niv": "Courte", "duree": "environ 35 h", "prix": "390 €", "url": "https://cook.swipeandlearn.school/formations/patisserie-maison.html"}, {"ec": "cook", "nom": "Permis d’exploitation (débit de boissons) — préparation", "niv": "Courte", "duree": "environ 20 h", "prix": "290 €", "url": "https://cook.swipeandlearn.school/formations/exploitation.html"}, {"ec": "cook", "nom": "Pièces cocktail, buffets et plateaux-repas", "niv": "Courte", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/pieces-cocktail.html"}, {"ec": "cook", "nom": "Pizzaïolo : pâte, cuisson et gestion d’un poste pizza", "niv": "Courte", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/pizzaiolo.html"}, {"ec": "cook", "nom": "Snacking, sandwichs et street-food", "niv": "Courte", "duree": "environ 21 h", "prix": "350 €", "url": "https://cook.swipeandlearn.school/formations/snacking.html"}, {"ec": "cook", "nom": "Traiteur & food-truck : créer son activité", "niv": "Courte", "duree": "environ 35 h", "prix": "590 €", "url": "https://cook.swipeandlearn.school/formations/traiteur.html"}, {"ec": "cook", "nom": "Vente à emporter, livraison et click & collect", "niv": "Courte", "duree": "environ 14 h", "prix": "250 €", "url": "https://cook.swipeandlearn.school/formations/vente-emporter.html"}, {"ec": "cook", "nom": "Viennoiserie : pâtes levées et levées feuilletées", "niv": "Courte", "duree": "environ 35 h", "prix": "490 €", "url": "https://cook.swipeandlearn.school/formations/viennoiserie.html"}];
+const FILTRES=[
+  {id:'tous',lab:'Toutes'},
+  {id:'diplo',lab:'Préparation à un diplôme',test:f=>['CAP','BP','CS','Titre pro'].includes(f.niv)},
+  {id:'module',lab:'Modules de diplôme',test:f=>f.niv==='Module'},
+  {id:'court',lab:'Formations courtes',test:f=>f.niv==='Courte'}
+];
+const compF=document.getElementById('compFiltres');
+const compT=document.getElementById('compTable');
+let filtreActif='tous', compTout=false;
+const COMP_MAX=12;
+function renderComp(){
+  const lst=filtreActif==='tous'?FORMATIONS:FORMATIONS.filter(FILTRES.find(x=>x.id===filtreActif).test);
+  let html='<div class="comp-row comp-head"><span>Formation</span><span>Niveau</span><span>Durée</span><span>Prix</span><span></span></div>';
+  if(!lst.length){html+='<div class="comp-empty">Aucune formation ne correspond à ce filtre.</div>';}
+  else{html+=(compTout?lst:lst.slice(0,COMP_MAX)).map(f=>`
+    <div class="comp-row">
+      <span class="cf-nom"><i style="background:var(--${f.ec})"></i><span>${f.nom}<small>${ECOLES[f.ec].nom}</small></span></span>
+      <span class="comp-cell" data-l="Niveau"><span class="comp-badge">${f.niv}</span></span>
+      <span class="comp-cell" data-l="Durée">${f.duree}</span>
+      <span class="comp-cell mut" data-l="Prix">${f.prix}</span>
+      <a class="btn-mini" href="${f.url}">Voir</a>
+    </div>`).join('');
+    if(!compTout&&lst.length>COMP_MAX)html+=`<div class="comp-empty"><button class="comp-filtre" id="compPlus">Afficher les ${lst.length-COMP_MAX} autres formations</button></div>`;}
+  compT.innerHTML=html;
+  const plus=document.getElementById('compPlus');if(plus)plus.onclick=()=>{compTout=true;renderComp();};
+}
+if(compF){
+  compF.innerHTML=FILTRES.map(f=>`<button class="comp-filtre${f.id==='tous'?' on':''}" data-f="${f.id}">${f.lab}</button>`).join('');
+  compF.querySelectorAll('.comp-filtre').forEach(b=>b.addEventListener('click',()=>{
+    filtreActif=b.dataset.f;compTout=false;
+    compF.querySelectorAll('.comp-filtre').forEach(x=>x.classList.toggle('on',x===b));
+    renderComp();
+  }));
+  renderComp();
+}
+
+/* ================= QUIZ ORIENTATION ================= */
+const QUESTIONS=[
+  {q:"Dans une journée idéale, vous préférez…",o:[
+    {t:"Bouger, être debout, agir de vos mains",s:{cook:2,build:3,drive:2,care:1}},
+    {t:"Être posé, organiser, structurer",s:{manage:3,code:2}},
+    {t:"Échanger, convaincre, être au contact",s:{sell:3,care:2}},
+    {t:"Résoudre des problèmes, réfléchir",s:{code:3,manage:1}}
+  ]},
+  {q:"Ce qui vous motive le plus, c’est…",o:[
+    {t:"Aider et prendre soin des autres",s:{care:3,cook:1}},
+    {t:"Créer, fabriquer quelque chose de concret",s:{build:3,cook:2,code:1}},
+    {t:"Vendre, développer, faire du chiffre",s:{sell:3}},
+    {t:"Faire tourner, gérer, fiabiliser",s:{manage:3,drive:2}}
+  ]},
+  {q:"Votre rapport à la technologie ?",o:[
+    {t:"Je veux en faire mon métier",s:{code:3}},
+    {t:"Un outil que j’aime utiliser au quotidien",s:{manage:2,sell:2}},
+    {t:"Utile, mais je préfère le terrain",s:{build:2,drive:2,cook:1}},
+    {t:"L’humain passe avant la machine",s:{care:3}}
+  ]},
+  {q:"Votre environnement de travail rêvé ?",o:[
+    {t:"Un atelier, un chantier, l’extérieur",s:{build:3,drive:2}},
+    {t:"Une cuisine, un labo, ça bouge",s:{cook:3}},
+    {t:"Un bureau, au calme et organisé",s:{manage:3,code:1}},
+    {t:"Au contact des gens, en mouvement",s:{sell:2,care:3}}
+  ]},
+  {q:"Face à un client ou une personne, vous êtes…",o:[
+    {t:"À l’écoute, patient, rassurant",s:{care:3}},
+    {t:"Enthousiaste, persuasif",s:{sell:3}},
+    {t:"Pro, précis, fiable",s:{manage:2,drive:2,build:1}},
+    {t:"Plutôt en coulisses, je livre le résultat",s:{code:3,cook:1}}
+  ]},
+  {q:"La durée de formation qui vous convient ?",o:[
+    {t:"Courte, je veux du concret vite (semaines)",s:{sell:2,code:1,drive:1,cook:1}},
+    {t:"Quelques mois pour un vrai diplôme",s:{care:2,build:2,cook:2,manage:1}},
+    {t:"Longue, quitte à viser plus haut (1 an+)",s:{code:2,manage:2}},
+    {t:"En alternance, formé et payé",s:{sell:2,code:2,manage:1}}
+  ]},
+  {q:"Ce qui vous rendrait fier en fin de journée ?",o:[
+    {t:"Un ouvrage, un plat, un truc bien fait",s:{cook:2,build:3}},
+    {t:"Des gens contents, aidés, servis",s:{care:3,sell:1}},
+    {t:"Un objectif atteint, une vente signée",s:{sell:3}},
+    {t:"Un système qui tourne, un dossier bouclé",s:{manage:3,code:2,drive:1}}
+  ]},
+  {q:"Le secteur qui vous attire le plus ?",o:[
+    {t:"Santé, social, enfance",s:{care:3}},
+    {t:"Numérique, web, données",s:{code:3}},
+    {t:"Bâtiment, énergie, artisanat",s:{build:3}},
+    {t:"Commerce, transport ou bureau",s:{sell:2,drive:2,manage:2}}
+  ]}
+];
+const qBox=document.getElementById('quizBox');
+const QUIZ_HTML=qBox?qBox.innerHTML:'';
+let qIdx=0,qScores={},qHist=[];
+function initQuiz(){
+  if(qBox&&!document.getElementById('quizOpts'))qBox.innerHTML=QUIZ_HTML;
+  qIdx=0;qScores={cook:0,sell:0,care:0,code:0,build:0,drive:0,manage:0};qHist=[];renderQ();
+}
+function renderQ(){
+  const Q=QUESTIONS[qIdx];
+  document.getElementById('quizBar').style.width=(qIdx/QUESTIONS.length*100)+'%';
+  document.getElementById('quizCount').textContent='Question '+(qIdx+1)+' / '+QUESTIONS.length;
+  document.getElementById('quizQ').textContent=Q.q;
+  const opts=document.getElementById('quizOpts');
+  opts.innerHTML=Q.o.map((o,i)=>`<button class="quiz-opt" data-i="${i}"><span class="dot"></span>${o.t}</button>`).join('');
+  opts.querySelectorAll('.quiz-opt').forEach(b=>b.addEventListener('click',()=>choisir(+b.dataset.i)));
+  const back=document.getElementById('quizBack');back.disabled=qIdx===0;
+  back.onclick=()=>{if(qIdx>0){qIdx--;const last=qHist.pop();for(const k in last)qScores[k]-=last[k];renderQ();}};
+}
+function choisir(i){
+  const s=QUESTIONS[qIdx].o[i].s;const applied={};
+  for(const k in s){qScores[k]+=s[k];applied[k]=s[k];}
+  qHist.push(applied);
+  if(qIdx<QUESTIONS.length-1){qIdx++;renderQ();}else resultat();
+}
+function resultat(){
+  document.getElementById('quizBar').style.width='100%';
+  const rank=Object.keys(qScores).sort((a,b)=>qScores[b]-qScores[a]);
+  const top=rank[0],e=ECOLES[top];
+  const forms=e.ouvert?FORMATIONS.filter(f=>f.ec===top).slice(0,3).map(f=>f.nom):[];
+  qBox.innerHTML=`
+    <div class="quiz-res">
+      <div class="res-ic" style="background:var(--${top})">${svg(top)}</div>
+      <div class="res-sur">Votre piste idéale</div>
+      <div class="res-metier">${METIER_PHARE[top]}</div>
+      <div class="res-ecole">${e.nom} · ${e.dom}</div>
+      <p class="res-desc">${e.ouvert?"D’après vos réponses, c’est vers ce métier et cette école que votre profil penche le plus. Explorez les formations pour vous faire une idée concrète.":"D’après vos réponses, c’est vers ce métier que votre profil penche le plus. Cette école ouvre bientôt : écrivez-nous pour être prévenu de son ouverture."}</p>
+      <div class="res-formations">${forms.map(f=>'<span>'+f+'</span>').join('')}</div>
+      <div class="res-actions">
+        <a class="btn btn-m" href="${e.url}">${e.ouvert?"Découvrir "+e.nom:"Être prévenu de l’ouverture"} <svg class="fl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <button class="btn btn-restart" id="quizRestart">Refaire le test</button>
+      </div>
+      <p style="font-size:.74rem;color:#C9BE9E;margin-top:18px">Ce test est indicatif et ne remplace pas un entretien d’orientation.</p>
+    </div>`;
+  document.getElementById('quizRestart').addEventListener('click',()=>{initQuiz();});
+}
+if(qBox)initQuiz();
+
+</script>
+<!-- SW_ADRESSES — collez ici l'adresse Netlify de chaque école une fois publiée. Tant qu'une adresse est vide,
+     le lien ouvre le site de l'école rangé dans le dossier livré (pour vos essais sur le PC). -->
+
+</body>
+</html>
