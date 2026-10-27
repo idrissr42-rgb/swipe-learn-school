@@ -64,7 +64,8 @@ rep('<a class="brand" href="#">', '<a class="brand" href="/">')
 rep_re(r'<li><a href="#quiz">Test d\'orientation</a></li>\s*<li><a href="#ecoles">Nos 7 écoles</a></li>', '<li><a href="#ecoles">Nos écoles</a></li><li><a href="#intensif">CAP intensif</a></li>')
 
 # ------------------------------------------------------------------ accueil (hero)
-rep('<span class="sur"><i></i>Le groupe qui forme aux métiers qui recrutent</span>', '<span class="sur"><i></i>Un groupe, sept écoles, une même méthode</span>')
+rep('<span class="sur"><i></i>Le groupe qui forme aux métiers qui recrutent</span>', '<span class="sur"><i></i>Une même méthode dans chaque école</span>')
+rep('<h1>Sept écoles.<br>Un seul geste : <span class="m">apprendre.</span></h1>', '<h1>Un groupe, sept écoles.<br>Un seul geste&nbsp;: <span class="m">apprendre.</span></h1>')
 rep_re(r'<p>Cuisine, vente, santé, numérique, bâtiment, transport, gestion : Swipe and Learn réunit sept écoles.*?</p>',
        '<p>Cuisine, vente, aide à la personne, numérique, bâtiment, transport, gestion : Swipe Learn School réunit sept écoles. La théorie se suit en ligne avec un formateur du métier ; la pratique se fait en entreprise, près de chez vous. Cook, l’école de cuisine, est ouverte ; les six autres ouvrent une à une.</p>')
 rep_re(r'<a class="btn btn-ghost" href="#ecoles">Voir les écoles</a>', f'<a class="btn btn-ghost" href="{COOK}/">Découvrir Cook, l’école de cuisine</a>')
