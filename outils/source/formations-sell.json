@@ -1,0 +1,196 @@
+{
+ "source": "dépôt swipe-sell : public/js/contenus-cours.js, outils/modele/catalogue.json, outils/seo/metiers.json",
+ "nb_formations": 15,
+ "nb_lecons": 152,
+ "nb_examens": 30,
+ "vitrine": [
+  "Vendre en magasin : accueil, conseil et conclusion",
+  "Prospection commerciale B2B",
+  "Créer et piloter une boutique en ligne",
+  "L’IA générative pour vendre"
+ ],
+ "formations": [
+  {
+   "nom": "Vendre en magasin : accueil, conseil et conclusion",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/vente.html"
+  },
+  {
+   "nom": "Merchandising et mise en valeur de l’offre",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/merchandising.html"
+  },
+  {
+   "nom": "Relation client : satisfaction, réclamations et fidélisation",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/relation.html"
+  },
+  {
+   "nom": "Prospection commerciale B2B",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/prospection-b2b.html"
+  },
+  {
+   "nom": "Mener un entretien de vente et conclure",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/closing.html"
+  },
+  {
+   "nom": "Négociation commerciale",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/negociation-com.html"
+  },
+  {
+   "nom": "Vendre à distance : téléphone et visio",
+   "niv": "Courte",
+   "duree": "environ 22 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/vente-telephone.html"
+  },
+  {
+   "nom": "Calculs commerciaux, devis et facturation",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/gestion-commerciale.html"
+  },
+  {
+   "nom": "Créer et piloter une boutique en ligne",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/ecommerce.html"
+  },
+  {
+   "nom": "Vendre sur les marketplaces",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/amazon.html"
+  },
+  {
+   "nom": "Social commerce et live shopping",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/tiktok.html"
+  },
+  {
+   "nom": "Marketing digital et tunnel de vente",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/marketing-digital.html"
+  },
+  {
+   "nom": "Écrire pour vendre : pages produit, e-mails et réseaux",
+   "niv": "Courte",
+   "duree": "environ 22 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/copywriting.html"
+  },
+  {
+   "nom": "L’IA générative pour vendre",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/ia-vente.html"
+  },
+  {
+   "nom": "L’IA pour e-commerçants",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/ia-ecommerce.html"
+  }
+ ],
+ "metiers": [
+  {
+   "s": "vendeur",
+   "nom": "Vendeur et conseiller de vente",
+   "formation": "Vendre en magasin : accueil, conseil et conclusion",
+   "pitch": "Le vendeur accueille les clients, comprend ce qu’ils cherchent, les conseille et conclut la vente. Il tient aussi son rayon : mise en place, étiquetage des prix, réassort, encaissement et service après-vente.",
+   "missions": [
+    "Accueillir chaque client et découvrir son besoin",
+    "Présenter les produits et argumenter en partant des bénéfices pour le client",
+    "Répondre aux objections et conclure la vente",
+    "Mettre en valeur les produits : rayon, vitrine, étiquetage des prix",
+    "Encaisser, informer sur les garanties et traiter les retours",
+    "Fidéliser : suivi, réclamations, avis clients"
+   ],
+   "deb": "Commerces de détail, grandes surfaces spécialisées, boutiques indépendantes, enseignes en franchise."
+  },
+  {
+   "s": "commercial",
+   "nom": "Commercial et technico-commercial",
+   "formation": "Prospection commerciale B2B",
+   "pitch": "Le commercial développe un portefeuille de clients professionnels : il prospecte, obtient des rendez-vous, comprend les besoins, propose une solution, négocie les conditions et suit ses clients dans la durée.",
+   "missions": [
+    "Cibler les entreprises à démarcher et tenir un fichier à jour",
+    "Prospecter par téléphone, e-mail, réseau professionnel et salons",
+    "Mener l’entretien de vente, en rendez-vous ou en visio",
+    "Négocier prix, délais et conditions de paiement",
+    "Établir devis et propositions, puis suivre la commande",
+    "Rendre compte de son activité dans l’outil de gestion de la relation client"
+   ],
+   "deb": "Entreprises de services, industrie, distribution, agences, travail indépendant."
+  },
+  {
+   "s": "e-commerce",
+   "nom": "E-commerçant et chargé d’e-commerce",
+   "formation": "Créer et piloter une boutique en ligne",
+   "pitch": "L’e-commerçant fait vivre une boutique en ligne ou des comptes sur des places de marché : catalogue et fiches produit, prix, commandes, livraison et retours, service client, publicité et réseaux sociaux, et le respect des règles du commerce en ligne.",
+   "missions": [
+    "Construire et tenir à jour le catalogue et les fiches produit",
+    "Fixer les prix et suivre les marges",
+    "Gérer commandes, expéditions, retours et service client",
+    "Attirer des visiteurs : référencement, publicité, réseaux sociaux, e-mailing",
+    "Mesurer les résultats et améliorer la boutique",
+    "Respecter le droit : mentions légales, CGV, rétractation, cookies, avis"
+   ],
+   "deb": "Boutiques en ligne, marques, vendeurs sur places de marché, agences."
+  },
+  {
+   "s": "commercant",
+   "nom": "Commerçant et créateur d’entreprise",
+   "formation": "Calculs commerciaux, devis et facturation",
+   "pitch": "Le commerçant indépendant fait tout : il achète, fixe ses prix, vend, tient sa vitrine, fidélise ses clients, facture, et de plus en plus vend aussi en ligne. Ces formations courtes couvrent ce qu’il faut maîtriser pour vendre et gagner sa vie.",
+   "missions": [
+    "Fixer ses prix et connaître ses marges",
+    "Établir devis et factures conformes, y compris en facture électronique",
+    "Mettre en valeur son offre en boutique et en vitrine",
+    "Fidéliser ses clients et gérer les réclamations",
+    "Ouvrir un canal de vente en ligne",
+    "Se faire connaître sur internet"
+   ],
+   "deb": "Commerce indépendant, artisanat, franchise, activité en ligne."
+  },
+  {
+   "s": "relation-client",
+   "nom": "Conseiller relation client à distance",
+   "formation": "Vendre à distance : téléphone et visio",
+   "pitch": "Le conseiller relation client répond aux appels et aux messages, renseigne, vend, traite les réclamations et fidélise, au téléphone, en visio, par e-mail ou par messagerie, dans le respect des règles du démarchage et du contrat à distance.",
+   "missions": [
+    "Répondre aux appels et messages des clients",
+    "Vendre ou proposer un service à distance",
+    "Traiter une réclamation jusqu’à sa solution",
+    "Appeler des clients ou des prospects dans le respect des règles du démarchage",
+    "Tracer chaque échange dans l’outil client",
+    "Contribuer à la satisfaction et à la fidélité"
+   ],
+   "deb": "Services clients des entreprises, centres de relation client, banques, assurances, énergie, télécoms."
+  }
+ ]
+}
