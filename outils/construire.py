@@ -49,7 +49,7 @@ LD = {'@context': 'https://schema.org', '@graph': [
 rep_re(r'<title>.*?</title>\s*<meta name="description" content="[^"]*">',
        f'<title>{E(TITRE)}</title>\n<meta name="description" content="{E(DESC)}">\n<link rel="canonical" href="{SITE}/">\n<meta name="robots" content="index,follow,max-image-preview:large">\n'
        f'<meta property="og:site_name" content="Swipe Learn School"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="website"><meta property="og:url" content="{SITE}/"><meta property="og:title" content="{E(TITRE)}"><meta property="og:description" content="{E(DESC)}"><meta property="og:image" content="{SITE}/logos/icone-groupe-512.png">\n'
-       f'<link rel="icon" href="/favicon.ico">\n<script type="application/ld+json">{json.dumps(LD, ensure_ascii=False)}</script>')
+       f'<link rel="icon" type="image/svg+xml" href="/logos/icone-groupe.svg"><link rel="icon" href="/favicon.ico" sizes="48x48">\n<script type="application/ld+json">{json.dumps(LD, ensure_ascii=False)}</script>')
 # styles ajoutés : écoles à venir, offre intensive
 rep('</style>', '''.ecole.bientot{opacity:.92}.ecole.bientot .tag-etat{background:var(--beige);color:var(--taupe)}.ecole.bientot ul li span{display:none}
 .intensif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:26px}
@@ -320,6 +320,10 @@ open(os.path.join(RAC, 'public/index.html'), 'w', encoding='utf-8').write(h)
 open(os.path.join(RAC, 'public/robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
 open(os.path.join(RAC, 'public/sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>{SITE}/</loc><priority>1.0</priority></url>\n</urlset>\n')
 open(os.path.join(RAC, 'public/404.html'), 'w', encoding='utf-8').write(f'<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page introuvable · Swipe Learn School</title><meta name="robots" content="noindex"></head><body style="font-family:Nunito,Arial,sans-serif;padding:40px;color:#2E2415;background:#FAF6EE"><h1>Cette page n’existe pas</h1><p><a href="/">Retour à l’accueil de Swipe Learn School</a> · <a href="{COOK}/">Cook, l’école de cuisine</a></p></body></html>')
+# icônes du groupe : l'or du groupe (même dessin que dans le pilote)
+import shutil
+shutil.copy(os.path.join(ICI, 'source', 'favicon-groupe.ico'), os.path.join(RAC, 'public', 'favicon.ico'))
+shutil.copy(os.path.join(ICI, 'source', 'icone-groupe.svg'), os.path.join(RAC, 'public', 'logos', 'icone-groupe.svg'))
 SG.copier_polices(os.path.join(ICI, 'source', 'polices'), os.path.join(RAC, 'public'))
 MA.fichiers(os.path.join(RAC, 'public'), DESC, [('Nos écoles', '/#ecoles'), ('Test d’orientation', '/#quiz'), ('Comparer les formations', '/#comparateur')])
 open(os.path.join(RAC, 'netlify.toml'), 'w').write('[build]\n  publish = "public"\n\n[[headers]]\n  for = "/*"\n  [headers.values]\n    X-Content-Type-Options = "nosniff"\n    Referrer-Policy = "strict-origin-when-cross-origin"\n'
