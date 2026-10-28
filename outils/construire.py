@@ -72,7 +72,7 @@ rep_re(r'<li><a href="#quiz">Test d\'orientation</a></li>\s*<li><a href="#ecoles
 rep_re(r'\s*<span class="sur"><i></i>Le groupe qui forme aux métiers qui recrutent</span>', '')
 rep('<h1>Sept écoles.<br>Un seul geste : <span class="m">apprendre.</span></h1>', '<h1>Un groupe, sept écoles.</h1>\n      <p class="geste">Un seul geste&nbsp;: apprendre.</p>')
 rep_re(r'<p>Cuisine, vente, santé, numérique, bâtiment, transport, gestion : Swipe and Learn réunit sept écoles.*?</p>',
-       '<p>Cuisine, vente, aide à la personne, numérique, bâtiment, transport, gestion : Swipe Learn School réunit sept écoles. La théorie se suit en ligne avec un formateur du métier ; la pratique se fait en entreprise, près de chez vous. Cook, l’école de cuisine, est ouverte ; les six autres ouvrent une à une.</p>')
+       '<p>Cuisine, vente, aide à la personne, numérique, bâtiment, transport, gestion : Swipe Learn School réunit sept écoles. Que vous cherchiez un emploi, que vous changiez de métier ou que vous travailliez déjà, chaque formation part des bases. La théorie se suit en ligne ; la pratique se fait en entreprise, près de chez vous. Cook et Sell sont ouvertes ; les autres écoles ouvrent une à une.</p>')
 rep_re(r'<a class="btn btn-ghost" href="#ecoles">Voir les écoles</a>', f'<a class="btn btn-ghost" href="{COOK}/">Découvrir Cook, l’école de cuisine</a>')
 rep_re(r'(<span>)(<svg[^>]*>(?:(?!</svg>).)*</svg>)Certifications RNCP(</span>)', r'\1\2Cours en ligne avec un formateur\3')
 rep_re(r'(<span>)(<svg[^>]*>(?:(?!</svg>).)*</svg>)Éligible CPF(</span>)', r'\1\2Pratique près de chez vous\3')
