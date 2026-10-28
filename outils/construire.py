@@ -1,7 +1,7 @@
 # Site du groupe Swipe Learn School (swipelearn.school) : version vraie de la maquette.
 # Entrée : maquette-origine.html (design et structure gardés) et formations-cook.json (catalogue réel de Cook).
 # Sortie : public/index.html, public/sitemap.xml, public/robots.txt, public/404.html.
-# Règles : nom public « Swipe Learn School » (jamais « Swipe and … »), seule Cook est ouverte, aucun financement
+# Règles : nom public « Swipe Learn School » (jamais « Swipe and … »), Cook et Sell sont ouvertes, aucun financement
 # public annoncé avant Qualiopi, aucun témoignage ni chiffre inventé, liens simples vers les écoles.
 import json, re, html, os
 
@@ -10,9 +10,13 @@ RAC = os.path.dirname(ICI)
 h = open(os.path.join(ICI, 'source', 'maquette-origine.html'), encoding='utf-8').read()
 F = json.load(open(os.path.join(ICI, 'source', 'formations-cook.json'), encoding='utf-8'))
 COOK = 'https://cook.swipelearn.school'
+SELL = 'https://sell.swipelearn.school'
 SITE = 'https://swipelearn.school'
 CONTACT = 'contact@swipeandlearn.school'
 NB_F, NB_L, NB_X = 50, 651, 100
+# Sell : chiffres et formations lus dans les contenus du site de Sell (dépôt swipe-sell), recopiés dans source/formations-sell.json
+FS = json.load(open(os.path.join(ICI, 'source', 'formations-sell.json'), encoding='utf-8'))
+SB_F, SB_L, SB_X = FS['nb_formations'], FS['nb_lecons'], FS['nb_examens']
 E = lambda s: html.escape(str(s), quote=True)
 
 
@@ -35,7 +39,7 @@ def prevenir(ecole):
 
 # ------------------------------------------------------------------ en-tête : titre, description, données structurées
 TITRE = 'Swipe Learn School : écoles de formation en ligne'
-DESC = 'Sept écoles de formation, une méthode : cours en ligne avec un formateur, pratique près de chez vous. Cook, l’école de cuisine, est ouverte.'
+DESC = 'Sept écoles de formation, une méthode : cours en ligne avec un formateur. Cook, l’école de cuisine, et Sell, l’école de la vente, sont ouvertes.'
 assert len(TITRE) <= 60 and len(DESC) <= 160
 LD = {'@context': 'https://schema.org', '@graph': [
     {'@type': 'WebSite', '@id': SITE + '/#site', 'name': 'Swipe Learn School', 'url': SITE + '/', 'inLanguage': 'fr-FR', 'publisher': {'@id': SITE + '/#organisation'}},
@@ -44,7 +48,8 @@ LD = {'@context': 'https://schema.org', '@graph': [
      'identifier': {'@type': 'PropertyValue', 'propertyID': 'SIRET', 'value': '13129496900012'},
      'address': {'@type': 'PostalAddress', 'streetAddress': '40 rue de la Badouillère', 'postalCode': '42000', 'addressLocality': 'Saint-Étienne', 'addressRegion': 'Auvergne-Rhône-Alpes', 'addressCountry': 'FR'},
      'areaServed': [{'@type': 'AdministrativeArea', 'name': 'Auvergne-Rhône-Alpes'}, {'@type': 'Country', 'name': 'France'}],
-     'subOrganization': [{'@type': 'EducationalOrganization', '@id': COOK + '/#ecole', 'name': 'Swipe Learn School · Cook', 'url': COOK + '/'}]},
+     'subOrganization': [{'@type': 'EducationalOrganization', '@id': COOK + '/#ecole', 'name': 'Swipe Learn School · Cook', 'url': COOK + '/'},
+                         {'@type': 'EducationalOrganization', '@id': SELL + '/#ecole', 'name': 'Swipe Learn School · Sell', 'url': SELL + '/'}]},
 ]}
 rep_re(r'<title>.*?</title>\s*<meta name="description" content="[^"]*">',
        f'<title>{E(TITRE)}</title>\n<meta name="description" content="{E(DESC)}">\n<link rel="canonical" href="{SITE}/">\n<meta name="robots" content="index,follow,max-image-preview:large">\n'
@@ -73,14 +78,14 @@ rep_re(r'(<span>)(<svg[^>]*>(?:(?!</svg>).)*</svg>)Certifications RNCP(</span>)'
 rep_re(r'(<span>)(<svg[^>]*>(?:(?!</svg>).)*</svg>)Éligible CPF(</span>)', r'\1\2Pratique près de chez vous\3')
 rep_re(r'(<span>)(<svg[^>]*>(?:(?!</svg>).)*</svg>)Promos à taille humaine(</span>)', r'\1\2Inscription toute l’année\3')
 for k, dom in [('Cook', 'Cuisine'), ('Sell', 'Vente'), ('Care', 'Santé'), ('Code', 'Numérique'), ('Build', 'Bâtiment'), ('Manage', 'Gestion'), ('Drive', 'Transport')]:
-    rep(f'<b>{dom}</b><br><small>Swipe and {k}</small>', f'<b>{dom}</b><br><small>{k} · {"ouverte" if k == "Cook" else "bientôt"}</small>')
+    rep(f'<b>{dom}</b><br><small>Swipe and {k}</small>', f'<b>{dom}</b><br><small>{k} · {"ouverte" if k in ("Cook", "Sell") else "bientôt"}</small>')
 rep('<b>Santé</b><br>', '<b>Aide à la personne</b><br>')
 
 # ------------------------------------------------------------------ chiffres (tous vérifiables sur le site de Cook)
 rep_re(r'<div class="chiffres">.*?</div>\s*</div>\s*(?=<section id="ecoles">)',
        f'''<div class="chiffres">
   <div class="wrap">
-    <div class="rv"><div class="v">7</div><div class="l">écoles, dont Cook déjà ouverte</div></div>
+    <div class="rv"><div class="v">7</div><div class="l">écoles, dont Cook et Sell déjà ouvertes</div></div>
     <div class="rv"><div class="v">{NB_F}</div><div class="l">formations à Cook, dont 16 préparations à un diplôme</div></div>
     <div class="rv"><div class="v">{NB_L}</div><div class="l">leçons et {NB_X} examens blancs en ligne à Cook</div></div>
     <div class="rv"><div class="v">15 j</div><div class="l">au plus pour répondre à votre demande d’inscription</div></div>
@@ -90,11 +95,10 @@ rep_re(r'<div class="chiffres">.*?</div>\s*</div>\s*(?=<section id="ecoles">)',
 
 # ------------------------------------------------------------------ écoles
 rep('<p class="sec-sub rv">Chaque école a sa couleur, sa plateforme et ses formateurs métier — toutes partagent la même exigence et la même pédagogie Swipe and Learn.</p>',
-    '<p class="sec-sub rv">Chaque école a sa couleur, sa plateforme et ses formateurs du métier ; toutes partagent la même méthode. Cook est ouverte, les six autres arrivent.</p>')
+    '<p class="sec-sub rv">Chaque école a sa couleur, sa plateforme et ses formateurs du métier ; toutes partagent la même méthode. Cook et Sell sont ouvertes, les cinq autres arrivent.</p>')
 rep_re(r'<div class="mod-lg presentiel"><span class="mod-pastille">Distance \+ centre</span>.*?</div>',
        '<div class="mod-lg presentiel"><span class="mod-pastille">En ligne + en entreprise</span><b>La théorie en ligne, la pratique sur le terrain.</b> Les gestes du métier se pratiquent chez un professionnel près de chez vous ; l’examen officiel, quand il y en a un, se passe dans un centre d’examen.</div>')
 PREVUES = {
-    'sell': ('Vente, e-commerce &amp; social commerce', ['Vente en magasin &amp; relation client', 'E-commerce &amp; Shopify', 'Marketplaces &amp; Amazon', 'Prospection &amp; closing commercial'], 15),
     'care': ('Aide à la personne &amp; petite enfance', ['Accompagner la personne au quotidien', 'Soins d’hygiène et gestes professionnels', 'Accompagner le jeune enfant', 'ADVF — Assistant de vie aux familles (titre pro)'], 18),
     'code': ('Numérique &amp; développement web', ['Créer un site sans coder', 'Programmation : JavaScript &amp; logique', 'Tout savoir sur l’IA', 'Cybersécurité : les fondamentaux'], 14),
     'build': ('Bâtiment &amp; rénovation énergétique', ['Lire un plan &amp; préparer le chantier', 'Gestes techniques : électricité &amp; plomberie', 'Rénovation énergétique', 'Diagnostic de performance énergétique'], 19),
@@ -115,6 +119,16 @@ rep_re(r'(<div class="ecole e-cook rv">\s*<div class="ecole-head">\s*<span class
       </ul>
       <div class="ecole-meta"><span>{NB_F} formations</span><span>{NB_L} leçons</span><span>{NB_X} examens blancs</span></div>
       <a class="btn" href="{COOK}/">Entrer dans l'école</a>''')
+# carte de Sell : le vrai catalogue
+rep_re(r'(<div class="ecole e-sell rv">\s*<div class="ecole-head">\s*<span class="ecole-ic">(?:(?!</span>).)*</span>\s*)<h3>SWIPE AND SELL<small>.*?</small></h3></div>.*?<a class="btn" href="swipe-and-sell-plateforme.html">Entrer dans l\'école</a>',
+       r'\1' + f'''<h3>SELL<small>Vente, commerce &amp; e-commerce</small></h3></div>
+      <span class="tag-etat">École ouverte</span>
+      <ul>
+        {''.join(f'<li><b>{E(x)}</b><span>{next(f["duree"] for f in FS["formations"] if f["nom"] == x)}</span></li>' for x in FS['vitrine'])}
+        <li><b>+ {SB_F - len(FS['vitrine'])} autres formations</b><span>à découvrir dans l’école</span></li>
+      </ul>
+      <div class="ecole-meta"><span>{SB_F} formations</span><span>{SB_L} leçons</span><span>{SB_X} examens blancs</span></div>
+      <a class="btn" href="{SELL}/">Entrer dans l'école</a>''')
 for k, (dom, liste, n) in PREVUES.items():
     rep_re(r'<div class="ecole e-' + k + r' rv">(\s*<div class="ecole-head">\s*<span class="ecole-ic">(?:(?!</span>).)*</span>\s*)<h3>SWIPE AND [A-Z]+<small>.*?</small></h3></div>.*?<a class="btn" href="swipe-and-' + k + r'-plateforme.html">Entrer dans l\'école</a>',
            f'<div class="ecole e-{k} bientot rv">' + r'\1' + f'''<h3>{NOMS[k].upper()}<small>{dom}</small></h3></div>
@@ -170,9 +184,9 @@ for a, b in [
 
 # ------------------------------------------------------------------ métiers et comparateur (données réelles de Cook)
 rep('<p class="sec-sub rv">Missions réelles, salaires indicatifs, débouchés et formation associée. Cliquez sur un métier pour voir sa fiche complète.</p>',
-    '<p class="sec-sub rv">Les métiers de Cook : missions, débouchés et formation associée. Les métiers des autres écoles arriveront avec leur ouverture.</p>')
+    '<p class="sec-sub rv">Les métiers de Cook et de Sell : missions, débouchés et formation associée. Les métiers des autres écoles arriveront avec leur ouverture.</p>')
 rep('<p class="sec-sub rv">Durée, niveau, rythme et financement : filtrez pour trouver le parcours qui colle à votre situation.</p>',
-    '<p class="sec-sub rv">Les 50 formations de Cook : niveau, durée indicative et prix par stagiaire. Filtrez pour trouver celle qui vous correspond.</p>')
+    f'<p class="sec-sub rv">Les formations de Cook et de Sell : niveau, durée indicative et prix par stagiaire. Filtrez pour trouver celle qui vous correspond.</p>')
 
 # ------------------------------------------------------------------ financement et reconversion : aujourd'hui, et après Qualiopi
 rep_re(r'<div class="guide-fin">.*?</div>\s*(?=<aside class="reconv rv">)', '''<div class="guide-fin">
@@ -225,7 +239,9 @@ rep('<p style="margin-top:12px;font-size:.88rem">15 rue des Écoles — 69000 Ly
     f'<p style="margin-top:12px;font-size:.88rem">40 rue de la Badouillère, 42000 Saint-Étienne<br><a href="mailto:{CONTACT}" style="color:inherit">{CONTACT}</a></p>')
 rep_re(r'<li><i style="background:var\(--cook\)"></i><a href="swipe-and-cook-plateforme.html">Swipe and Cook — Cuisine</a></li>',
        f'<li><i style="background:var(--cook)"></i><a href="{COOK}/">Cook : cuisine, pâtisserie, bar et hôtellerie</a></li>')
-for k, lib in [('sell', 'Vente &amp; e-commerce'), ('care', 'Santé'), ('code', 'Numérique'), ('build', 'Bâtiment'), ('drive', 'Transport'), ('manage', 'Gestion &amp; secrétariat')]:
+rep(f'<li><i style="background:var(--sell)"></i><a href="swipe-and-sell-plateforme.html">Swipe and Sell — Vente &amp; e-commerce</a></li>',
+    f'<li><i style="background:var(--sell)"></i><a href="{SELL}/">Sell : vente, commerce et e-commerce</a></li>')
+for k, lib in [('care', 'Santé'), ('code', 'Numérique'), ('build', 'Bâtiment'), ('drive', 'Transport'), ('manage', 'Gestion &amp; secrétariat')]:
     nouveau = {'care': 'Aide à la personne'}.get(k, lib)
     rep(f'<li><i style="background:var(--{k})"></i><a href="swipe-and-{k}-plateforme.html">Swipe and {NOMS[k]} — {lib}</a></li>',
         f'<li><i style="background:var(--{k})"></i><span>{NOMS[k]} : {nouveau}, bientôt</span></li>')
@@ -237,8 +253,8 @@ rep_re(r'<div class="legal">.*?</div>',
 
 # ------------------------------------------------------------------ script : écoles, métiers, comparateur, test d'orientation
 ECOLES_JS = "const ECOLES={\n" + ",\n".join(
-    f"  {k}:{{nom:'{NOMS[k]}',dom:'{d}',url:'{u}',ouvert:{'true' if k == 'cook' else 'false'}}}"
-    for k, d, u in [('cook', 'Cuisine, pâtisserie, bar & hôtellerie', COOK + '/'), ('sell', 'Vente & e-commerce', prevenir('Sell')), ('care', 'Aide à la personne & petite enfance', prevenir('Care')),
+    f"  {k}:{{nom:'{NOMS[k]}',dom:'{d}',url:'{u}',ouvert:{'true' if k in ('cook', 'sell') else 'false'}}}"
+    for k, d, u in [('cook', 'Cuisine, pâtisserie, bar & hôtellerie', COOK + '/'), ('sell', 'Vente, commerce & e-commerce', SELL + '/'), ('care', 'Aide à la personne & petite enfance', prevenir('Care')),
                     ('code', 'Numérique & développement web', prevenir('Code')), ('build', 'Bâtiment & rénovation énergétique', prevenir('Build')), ('drive', 'Transport & logistique', prevenir('Drive')),
                     ('manage', 'Gestion, comptabilité & secrétariat', prevenir('Manage'))]) + "\n};"
 rep_re(r'const ECOLES=\{.*?\n\};', ECOLES_JS.replace('\\', '\\\\'))
@@ -251,8 +267,10 @@ METIERS = [
     ('Réceptionniste', 'Titre pro Réceptionniste', 'hotellerie', "Accueillir les clients d’un hôtel, gérer les réservations et le séjour.", ['Accueillir et informer les clients', 'Gérer les réservations', 'Assurer la facturation', 'Traiter les demandes et réclamations'], 'Hôtels, résidences de tourisme, hôtellerie de plein air.'),
 ]
 metiers_js = "const METIERS=[\n" + ",\n".join(
-    "  {ec:'cook',nom:%s,for:%s,url:%s,pitch:%s,miss:%s,deb:%s}" % tuple(json.dumps(x, ensure_ascii=False) for x in (n, f, f'{COOK}/metiers/{s}.html', p, m, d))
-    for n, f, s, p, m, d in METIERS) + "\n];"
+    ["  {ec:'cook',nom:%s,for:%s,url:%s,pitch:%s,miss:%s,deb:%s}" % tuple(json.dumps(x, ensure_ascii=False) for x in (n, f, f'{COOK}/metiers/{s}.html', p, m, d))
+     for n, f, s, p, m, d in METIERS] +
+    ["  {ec:'sell',nom:%s,for:%s,url:%s,pitch:%s,miss:%s,deb:%s}" % tuple(json.dumps(x, ensure_ascii=False) for x in (m['nom'], m['formation'], f"{SELL}/metiers/{m['s']}.html", m['pitch'], m['missions'][:4], m['deb']))
+     for m in FS['metiers']]) + "\n];"
 rep_re(r'const METIERS=\[.*?\n\];', metiers_js.replace('\\', '\\\\'))
 rep("const METIER_PHARE={\n  cook:'Cuisinier',sell:'Conseiller de vente',care:'Assistant de vie aux familles',", "const METIER_PHARE={\n  cook:'Cuisinier',sell:'Conseiller de vente',care:'Assistant de vie aux familles',")
 # fiches métiers : plus de salaires ni de niveaux de demande (non sourcés) ; lien vers la page métier de Cook
@@ -261,11 +279,11 @@ rep_re(r'<div class="mmodal-stats">.*?</div>\s*</div>\s*(?=<h5>Le métier</h5>)'
 rep('<a class="btn btn-m mmodal-cta" href="${e.url}">Découvrir la formation', '<a class="btn btn-m mmodal-cta" href="${m.url}">Découvrir le métier et ses formations')
 rep_re(r'<p style="font-size:\.74rem;color:var\(--taupe\);margin-top:14px">Salaires et niveaux de demande.*?</p>', '')
 # comparateur : les 50 formations de Cook, prix au lieu du financement
-form_js = "const FORMATIONS=" + json.dumps([{'ec': 'cook', **x} for x in F], ensure_ascii=False) + ";"
+form_js = "const FORMATIONS=" + json.dumps([{'ec': 'cook', **x} for x in F] + [{'ec': 'sell', **x} for x in FS['formations']], ensure_ascii=False) + ";"
 rep_re(r'const FORMATIONS=\[.*?\n\];', form_js.replace('\\', '\\\\'))
 rep_re(r'const FILTRES=\[.*?\n\];', '''const FILTRES=[
   {id:'tous',lab:'Toutes'},
-  {id:'diplo',lab:'Préparation à un diplôme',test:f=>['CAP','BP','CS','Titre pro'].includes(f.niv)},
+  {id:'diplo',lab:'Préparation à un diplôme',test:f=>['CAP','BP','CS','Titre pro','Bac pro','BTS'].includes(f.niv)},
   {id:'module',lab:'Modules de diplôme',test:f=>f.niv==='Module'},
   {id:'court',lab:'Formations courtes',test:f=>f.niv==='Courte'}
 ];''')
