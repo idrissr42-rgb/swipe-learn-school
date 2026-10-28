@@ -1,8 +1,8 @@
 {
  "source": "dépôt swipe-sell : public/js/contenus-cours.js, outils/modele/catalogue.json et diplomes.json, outils/seo/metiers.json",
- "nb_formations": 25,
- "nb_lecons": 272,
- "nb_examens": 50,
+ "nb_formations": 26,
+ "nb_lecons": 282,
+ "nb_examens": 52,
  "nb_diplomes": 4,
  "vitrine": [
   "BTS Management commercial opérationnel — préparation candidat libre",
@@ -143,6 +143,13 @@
    "duree": "environ 21 h",
    "prix": "Sur demande",
    "url": "https://sell.swipelearn.school/formations/creer-commerce.html"
+  },
+  {
+   "nom": "Construire une offre irrésistible",
+   "niv": "Courte",
+   "duree": "environ 21 h",
+   "prix": "Sur demande",
+   "url": "https://sell.swipelearn.school/formations/offre-irresistible.html"
   },
   {
    "nom": "Service client digital : chat, messageries et réseaux sociaux",
