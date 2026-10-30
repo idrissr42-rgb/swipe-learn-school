@@ -39,6 +39,9 @@ DESC = 'Swipe Learn School prépare ses cours : sept écoles, sept métiers. La 
 LD = json.dumps({'@context': 'https://schema.org', '@type': 'EducationalOrganization', 'name': 'Swipe Learn School', 'url': SITE + '/',
                  'logo': SITE + '/logos/icone-groupe-512.png', 'description': DESC}, ensure_ascii=False)
 
+dots = ''.join(f'<span style="--c:{c};animation-delay:{i*.3:.1f}s"></span>' for i, (n, c, p) in enumerate(METIERS))
+noms = ' · '.join(n for n, c, p in METIERS)
+pts1 = ''.join(f'<div class="pt">{ic}<div><b>{t}</b><p>{d}</p></div></div>' for ic, t, d in POINTS)
 page = f'''<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{TITRE}</title><meta name="description" content="{DESC}"><link rel="canonical" href="{SITE}/">
 <meta name="theme-color" content="#2B2213"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/logos/icone-groupe.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/logos/apple-touch-icon.png">
@@ -46,40 +49,28 @@ page = f'''<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name
 <link rel="preload" href="/polices/baloo-2-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">{LD}</script>
 <style>{FACES}
-:root{{--creme:#F2F1EE;--brun:#2B2213;--encre:#2A2116;--moutarde:#C89B2E;--moutarde-f:#7A5D12}}
 *{{box-sizing:border-box;margin:0;padding:0}}
-body{{font-family:Nunito,Arial,sans-serif;color:var(--encre);background:var(--creme);min-height:100vh}}
-.w{{max-width:1180px;margin:0 auto;padding:28px 24px;min-height:100vh;display:flex;flex-direction:column;gap:44px}}
-.marque{{display:flex;align-items:center;gap:12px;font-family:'Baloo 2';font-weight:800;letter-spacing:.04em}}
-.marque img{{border-radius:12px}}
-.tete{{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}}
-.sur{{display:inline-block;background:#F4E9CC;color:var(--moutarde-f);font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}}
-h1{{font-family:'Baloo 2';font-weight:800;font-size:clamp(3rem,8.4vw,6.6rem);line-height:.92;letter-spacing:-.01em}}
-.tete p{{font-size:1.18rem;line-height:1.65;color:#3d3426;max-width:46ch}}
-.tete p b{{color:var(--encre)}}
-.metiers{{list-style:none;display:grid;grid-template-columns:repeat(7,1fr);gap:12px}}
-.metiers li{{background:var(--c);color:#fff;border-radius:22px;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:18px 16px;opacity:0;transform:translateY(14px);animation:monte .6s ease forwards var(--d)}}
-.metiers svg{{width:46px;height:46px}}
-.metiers span{{font-family:'Baloo 2';font-weight:700;font-size:1.12rem;line-height:1.1}}
-@keyframes monte{{to{{opacity:1;transform:none}}}}
-.force{{font-family:'Baloo 2';font-weight:700;font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1.2;color:var(--moutarde-f);max-width:30ch}}
-.points{{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
-.pt{{background:#fff;border-radius:20px;padding:22px}}
-.pt svg{{width:28px;height:28px;color:var(--moutarde-f);margin-bottom:12px}}
-.pt b{{display:block;font-family:'Baloo 2';font-size:1.2rem;margin-bottom:4px}}
-.pt p{{line-height:1.55;color:#3d3426}}
-footer{{margin-top:auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.85rem;color:#5A5143;padding-top:10px;border-top:1px solid #E1DDD4}}
-@media(max-width:980px){{.metiers{{grid-template-columns:repeat(4,1fr)}}.tete{{grid-template-columns:1fr;gap:18px}}}}
-@media(max-width:640px){{.w{{padding:20px 16px;gap:30px}}.metiers{{grid-template-columns:repeat(2,1fr);gap:10px}}.metiers li{{aspect-ratio:auto;min-height:104px;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;padding:14px}}.metiers li:last-child{{grid-column:span 2}}.metiers svg{{width:34px;height:34px;flex:none}}.metiers span{{font-size:1rem}}.points{{grid-template-columns:1fr}}.tete p{{font-size:1.05rem}}}}
-@media(prefers-reduced-motion:reduce){{.metiers li{{animation:none;opacity:1;transform:none}}}}
-</style></head><body><main class="w">
-<div class="marque"><img src="/logos/icone-groupe.svg" alt="" width="48" height="48">SWIPE LEARN SCHOOL</div>
-<section class="tete"><div><p class="sur">Bientôt</p><h1>On prépare<br>vos cours.</h1></div>
-<p>Swipe Learn School réunit <b>sept écoles</b>, une par métier. Nous finalisons tout pour vous accueillir dans les meilleures conditions.</p></section>
-<ul class="metiers" aria-label="Les sept métiers de nos écoles">{tuiles}</ul>
-<p class="force">Sept métiers différents, une même façon d’apprendre : c’est notre force.</p>
-<section class="points">{pts}</section>
-<footer><span>© 2026 Swipe Learn School · Saint-Étienne</span><span>Un peu de patience, on arrive.</span></footer>
+body{{font-family:Nunito,Arial,sans-serif;background:#2B2213;color:#F2F1EE;min-height:100vh}}
+.m{{max-width:1100px;margin:0 auto;padding:28px 24px;min-height:100vh;display:flex;flex-direction:column;gap:40px}}
+.marque{{display:flex;align-items:center;gap:12px;font-family:'Baloo 2';font-weight:800;letter-spacing:.04em}}.marque img{{border-radius:12px}}
+.c{{flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px}}
+h1{{font-family:'Baloo 2';font-size:clamp(3.2rem,11vw,8rem);line-height:.9;color:#fff;font-weight:800}}
+.dots{{display:flex;gap:12px}}.dots span{{width:20px;height:20px;border-radius:50%;background:var(--c);animation:al 2.8s ease-in-out infinite;opacity:.3}}
+@keyframes al{{30%{{opacity:1;transform:scale(1.3)}}}}
+.noms{{font-family:'Baloo 2';font-weight:700;font-size:1.15rem;color:#C89B2E}}
+.intro{{font-size:1.1rem;line-height:1.65;max-width:56ch;color:#E8E2D2}}
+.force{{font-family:'Baloo 2';font-size:1.5rem;font-weight:700;color:#fff;max-width:32ch;line-height:1.2}}
+.pts{{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;border-top:1px solid rgba(255,255,255,.15);padding-top:24px}}
+.pt{{display:flex;gap:12px}}.pt svg{{width:26px;height:26px;color:#C89B2E;flex:none}}.pt b{{font-family:'Baloo 2';font-size:1.1rem;display:block}}.pt p{{color:#D8D0BE;line-height:1.5;font-size:.95rem}}
+footer{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.9rem;color:#D8D0BE}}footer b{{font-family:'Baloo 2';color:#C89B2E}}
+@media(max-width:760px){{.pts{{grid-template-columns:1fr}}}}
+@media(prefers-reduced-motion:reduce){{.dots span{{animation:none;opacity:1}}}}
+</style></head><body><main class="m">
+<div class="marque"><img src="/logos/icone-groupe.svg" alt="" width="44" height="44">SWIPE LEARN SCHOOL</div>
+<div class="c"><div class="dots" aria-hidden="true">{dots}</div><h1>On prépare<br>vos cours.</h1><p class="noms">{noms}</p>
+<p class="intro">Swipe Learn School réunit sept écoles, une par métier. Nous finalisons tout pour vous accueillir dans les meilleures conditions.</p>
+<p class="force">Sept métiers différents, une même façon d’apprendre : c’est notre force.</p><div class="pts">{pts1}</div></div>
+<footer><span>© 2026 Swipe Learn School · <b>Auvergne-Rhône-Alpes</b></span><span>Prochainement dans votre région</span></footer>
 </main></body></html>'''
 
 open(os.path.join(PUB, 'index.html'), 'w', encoding='utf-8').write(page)
