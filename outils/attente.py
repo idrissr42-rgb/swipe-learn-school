@@ -1,0 +1,96 @@
+# Page d'attente de swipelearn.school (30/10/2026) : remplace le site du groupe le temps de finaliser les démarches.
+# Le vrai site reste dans le dépôt : pour le remettre en ligne, relancer outils/construire.py (qui réécrit public/index.html,
+# le plan du site et la page 404) et remettre l'ancien sw.js (historique git).
+# Règles : aucun lien, aucune école citée par son nom, aucun financement, aucun chiffre, aucune promesse d'admission.
+import os, re, json
+ICI = os.path.dirname(os.path.abspath(__file__))
+RAC = os.path.dirname(ICI)
+PUB = os.path.join(RAC, 'public')
+SITE = 'https://swipelearn.school'
+
+# polices du site (déjà servies en local) et icônes des sept métiers, reprises du générateur du vrai site
+src = open(os.path.join(ICI, 'source', 'maquette-origine.html'), encoding='utf-8').read() if os.path.exists(os.path.join(ICI, 'source', 'maquette-origine.html')) else ''
+FACES = ''.join(
+    "@font-face{font-family:'%s';font-style:normal;font-display:swap;font-weight:%s;src:url(/polices/%s) format('woff2')}" % (fam, w, f)
+    for fam, w, f in [('Baloo 2', 700, 'baloo-2-latin-700-normal.woff2'), ('Baloo 2', 800, 'baloo-2-latin-800-normal.woff2'),
+                      ('Nunito', 400, 'nunito-latin-400-normal.woff2'), ('Nunito', 700, 'nunito-latin-700-normal.woff2'),
+                      ('Nunito', 800, 'nunito-latin-800-normal.woff2')])
+S = 'viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"'
+METIERS = [
+    ('Cuisine', '#4A6FB5', '<path d="M10 24h28v8a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8v-8z"/><path d="M10 27H5M43 27h-5"/><path d="M18 17c0-3 3-3 3-6M27 17c0-3 3-3 3-6"/>'),
+    ('Vente', '#C96A2E', '<path d="M9 24v14a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V24"/><path d="M6 11h36l3 8c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5c0 3-2.7 5-6 5s-6-2-6-5l3-8z"/><path d="M20 40V30h8v10"/>'),
+    ('Aide à la personne', '#4E9B84', '<path d="M24 28s-7.4-4.7-9.8-9.3C12.3 15 14.2 11 18 11c2.5 0 4.4 1.4 6 3.7 1.6-2.3 3.5-3.7 6-3.7 3.8 0 5.7 4 3.8 7.7C31.4 23.3 24 28 24 28z"/><path d="M10 38c4.5-3 9-3 14-3h7a3 3 0 0 1 0 6H21"/>'),
+    ('Gestion', '#9C5A80', '<rect x="6" y="15" width="36" height="24" rx="4"/><path d="M18 15v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3"/><path d="M6 26h15M27 26h15"/><rect x="21" y="23.5" width="6" height="5" rx="1.5"/>'),
+    ('Numérique', '#7C6AA6', '<rect x="6" y="9" width="36" height="30" rx="4"/><path d="M6 16h36"/><path d="M17 24l-5 5 5 5M31 24l5 5-5 5M26 22l-4 14"/>'),
+    ('Bâtiment', '#B8892E', '<path d="M8 31a16 16 0 0 1 12.5-15.6V13a3.5 3.5 0 0 1 7 0v2.4A16 16 0 0 1 40 31"/><path d="M5 31h38v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/><path d="M24 15v10"/>'),
+    ('Transport', '#A8524E', '<path d="M4 13h23v19H4z"/><path d="M27 19h9l8 8v5H27"/><circle cx="12" cy="36" r="4"/><circle cx="34" cy="36" r="4"/><path d="M16 36h14"/>'),
+]
+tuiles = ''.join(f'<li style="--c:{c};--d:{i*.12:.2f}s"><svg {S} aria-hidden="true">{p}</svg><span>{n}</span></li>' for i, (n, c, p) in enumerate(METIERS))
+I = lambda p: f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{p}</svg>'
+POINTS = [
+    (I('<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'), 'Les cours en ligne', 'La théorie se suit à votre rythme, avec un formateur.'),
+    (I('<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'), 'Près de chez vous', 'Chaque école s’appuie sur des entreprises de votre territoire.'),
+    (I('<path d="M14 7l3-3 3 3-3 3"/><path d="M17 4v7a4 4 0 0 1-4 4H4"/><path d="M7 12l-3 3 3 3"/>'), 'La pratique pour de vrai', 'Les gestes du métier s’apprennent chez nos partenaires, en situation réelle.'),
+]
+pts = ''.join(f'<div class="pt">{ic}<b>{t}</b><p>{d}</p></div>' for ic, t, d in POINTS)
+
+TITRE = 'Swipe Learn School · Sept écoles de métiers, bientôt'
+DESC = 'Swipe Learn School prépare ses cours : sept écoles, sept métiers. La théorie en ligne, la pratique chez des entreprises partenaires, près de chez vous.'
+LD = json.dumps({'@context': 'https://schema.org', '@type': 'EducationalOrganization', 'name': 'Swipe Learn School', 'url': SITE + '/',
+                 'logo': SITE + '/logos/icone-groupe-512.png', 'description': DESC}, ensure_ascii=False)
+
+page = f'''<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{TITRE}</title><meta name="description" content="{DESC}"><link rel="canonical" href="{SITE}/">
+<meta name="theme-color" content="#2B2213"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/logos/icone-groupe.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/logos/apple-touch-icon.png">
+<meta property="og:title" content="Swipe Learn School"><meta property="og:description" content="{DESC}"><meta property="og:type" content="website"><meta property="og:url" content="{SITE}/"><meta property="og:image" content="{SITE}/logos/icone-groupe-512.png">
+<link rel="preload" href="/polices/baloo-2-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{LD}</script>
+<style>{FACES}
+:root{{--creme:#F2F1EE;--brun:#2B2213;--encre:#2A2116;--moutarde:#C89B2E;--moutarde-f:#7A5D12}}
+*{{box-sizing:border-box;margin:0;padding:0}}
+body{{font-family:Nunito,Arial,sans-serif;color:var(--encre);background:var(--creme);min-height:100vh}}
+.w{{max-width:1180px;margin:0 auto;padding:28px 24px;min-height:100vh;display:flex;flex-direction:column;gap:44px}}
+.marque{{display:flex;align-items:center;gap:12px;font-family:'Baloo 2';font-weight:800;letter-spacing:.04em}}
+.marque img{{border-radius:12px}}
+.tete{{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}}
+.sur{{display:inline-block;background:#F4E9CC;color:var(--moutarde-f);font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}}
+h1{{font-family:'Baloo 2';font-weight:800;font-size:clamp(3rem,8.4vw,6.6rem);line-height:.92;letter-spacing:-.01em}}
+.tete p{{font-size:1.18rem;line-height:1.65;color:#3d3426;max-width:46ch}}
+.tete p b{{color:var(--encre)}}
+.metiers{{list-style:none;display:grid;grid-template-columns:repeat(7,1fr);gap:12px}}
+.metiers li{{background:var(--c);color:#fff;border-radius:22px;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:18px 16px;opacity:0;transform:translateY(14px);animation:monte .6s ease forwards var(--d)}}
+.metiers svg{{width:46px;height:46px}}
+.metiers span{{font-family:'Baloo 2';font-weight:700;font-size:1.12rem;line-height:1.1}}
+@keyframes monte{{to{{opacity:1;transform:none}}}}
+.force{{font-family:'Baloo 2';font-weight:700;font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1.2;color:var(--moutarde-f);max-width:30ch}}
+.points{{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}}
+.pt{{background:#fff;border-radius:20px;padding:22px}}
+.pt svg{{width:28px;height:28px;color:var(--moutarde-f);margin-bottom:12px}}
+.pt b{{display:block;font-family:'Baloo 2';font-size:1.2rem;margin-bottom:4px}}
+.pt p{{line-height:1.55;color:#3d3426}}
+footer{{margin-top:auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.85rem;color:#5A5143;padding-top:10px;border-top:1px solid #E1DDD4}}
+@media(max-width:980px){{.metiers{{grid-template-columns:repeat(4,1fr)}}.tete{{grid-template-columns:1fr;gap:18px}}}}
+@media(max-width:640px){{.w{{padding:20px 16px;gap:30px}}.metiers{{grid-template-columns:repeat(2,1fr);gap:10px}}.metiers li{{aspect-ratio:auto;min-height:104px;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;padding:14px}}.metiers li:last-child{{grid-column:span 2}}.metiers svg{{width:34px;height:34px;flex:none}}.metiers span{{font-size:1rem}}.points{{grid-template-columns:1fr}}.tete p{{font-size:1.05rem}}}}
+@media(prefers-reduced-motion:reduce){{.metiers li{{animation:none;opacity:1;transform:none}}}}
+</style></head><body><main class="w">
+<div class="marque"><img src="/logos/icone-groupe.svg" alt="" width="48" height="48">SWIPE LEARN SCHOOL</div>
+<section class="tete"><div><p class="sur">Bientôt</p><h1>On prépare<br>vos cours.</h1></div>
+<p>Swipe Learn School réunit <b>sept écoles</b>, une par métier. Nous finalisons tout pour vous accueillir dans les meilleures conditions.</p></section>
+<ul class="metiers" aria-label="Les sept métiers de nos écoles">{tuiles}</ul>
+<p class="force">Sept métiers différents, une même façon d’apprendre : c’est notre force.</p>
+<section class="points">{pts}</section>
+<footer><span>© 2026 Swipe Learn School · Saint-Étienne</span><span>Un peu de patience, on arrive.</span></footer>
+</main></body></html>'''
+
+open(os.path.join(PUB, 'index.html'), 'w', encoding='utf-8').write(page)
+open(os.path.join(PUB, '404.html'), 'w', encoding='utf-8').write(page.replace(f'<link rel="canonical" href="{SITE}/">', '<meta name="robots" content="noindex">'))
+open(os.path.join(PUB, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>{SITE}/</loc><priority>1.0</priority></url>\n</urlset>\n')
+# l'application installée : un service worker qui vide les caches de l'ancien site et se désinstalle
+open(os.path.join(PUB, 'sw.js'), 'w', encoding='utf-8').write(
+    "// Page d'attente : vide les caches de l'ancien site et se désinstalle, pour que personne ne garde l'ancienne version.\n"
+    "self.addEventListener('install', () => self.skipWaiting());\n"
+    "self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.map((k) => caches.delete(k))))"
+    ".then(() => self.registration.unregister()).then(() => self.clients.matchAll()).then((cs) => cs.forEach((c) => c.navigate(c.url)))); });\n")
+for interdit in ['Cook', 'cook', 'Sell', 'Care', 'CPF', 'OPCO', 'Qualiopi', '<a ']:
+    assert interdit not in page, interdit
+print('page d\'attente écrite', len(page))

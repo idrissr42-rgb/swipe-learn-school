@@ -20,3 +20,6 @@ formations éligibles au CPF, vrais avis d'élèves (avec leur accord), réseau 
   `hors-ligne.html`, `_headers`, icônes `logos/icone-groupe-masquable-512.png` et `logos/apple-touch-icon.png`.
 - Captures montrées par Android dans la fenêtre d’installation : `node outils/captures.js && python3 outils/construire.py`.
 - Après un changement du service worker, augmenter `VERSION_CACHE` dans `mobile_appli.py`.
+
+## Page d’attente (depuis le 30/10/2026)
+Le site en ligne est une page d’attente générée par `outils/attente.py` (accueil, 404, plan du site, et un service worker qui vide les anciens caches). Le vrai site reste dans `outils/construire.py` : pour le remettre, relancer `construire.py` et restaurer l’ancien `public/sw.js` depuis l’historique git.
