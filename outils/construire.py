@@ -331,6 +331,30 @@ rep('const COMP_MAX=12;', "const COMP_MAX=window.matchMedia('(max-width:700px)')
 # typographie : pas de « ? » seul en début de ligne dans les questions
 h = re.sub(r'(<summary>[^<]*?) \?</summary>', lambda m: m.group(1) + '&nbsp;?</summary>', h)
 
+# ------------------------------------------------------------------ accueil : le carrousel remonte sous le titre (proposition A, 30/10)
+rep('<header class="hero">\n  <div class="wrap">\n    <div class="rv on">', '<header class="hero va">\n  <div class="wrap">\n    <div class="rv on g">')
+rep('<p>Cuisine, vente, aide à la personne, numérique, bâtiment, transport, gestion : Swipe Learn School réunit sept écoles. Que vous cherchiez un emploi, que vous changiez de métier ou que vous travailliez déjà, chaque formation part des bases. La théorie se suit en ligne ; la pratique se fait en entreprise, près de chez vous. Cook et Sell sont ouvertes ; les autres écoles ouvrent une à une.</p>',
+    '<p class="intro">Cuisine, vente, aide à la personne, numérique, bâtiment, transport, gestion. La théorie en ligne, la pratique en entreprise près de chez vous. Cook et Sell sont ouvertes ; les autres écoles ouvrent une à une.</p>')
+rep('</head>', """<style>/* accueil : carrousel remonté */
+.va{padding:40px 0 56px!important}
+.va .wrap{grid-template-columns:1.05fr .95fr!important;align-items:center}
+.va .scene{width:500px;height:430px}
+.va .scene .halo{display:block!important;width:400px;height:400px;filter:blur(10px);opacity:1}
+.va .slide svg{width:260px;height:260px}
+@media(max-width:940px){
+ .va .wrap{display:flex!important;flex-direction:column;align-items:stretch!important;gap:0!important}
+ .va .g{display:contents}
+ .va h1{order:1}.va .geste{order:2}.va .carrousel{order:3;margin:6px 0 4px}
+ .va .intro{order:4}.va .hero-actions{order:5}.va .confiance{order:6}
+}
+@media(max-width:600px){
+ .va{padding:18px 0 28px!important}
+ .va .scene{width:100%;height:250px}.va .scene .halo{width:210px;height:210px}
+ .va .slide svg{width:132px;height:132px}.va .slide b{font-size:1.3rem}
+ .va .intro{margin:8px 0 16px!important}.va .hero-actions .btn{width:100%}
+}</style>
+</head>""")
+
 # ------------------------------------------------------------------ contrôles
 for interdit in ['Swipe and', 'SWIPE AND', 'swipeandlearn.com', '04 00 00 00 00', 'maquette', 'DocuSign', 'plateforme.html', 'Éligible CPF', '100 %', 'témoign', 'sans avance de frais', 'Lyon<br>']:
     assert interdit not in h, 'reste : ' + interdit
